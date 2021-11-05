@@ -8,7 +8,7 @@ namespace BookShop.Core.Services
 {
     public interface ICategoryService
     {
-        Task<List<Category>> GetAllCategories();
+        Task<IEnumerable<Category>> GetAllCategories();
         Task<Category> GetCategoryWithBooks(int id);
     }
 }

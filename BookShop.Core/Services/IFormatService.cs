@@ -8,7 +8,7 @@ namespace BookShop.Core.Services
 {
     public interface IFormatService
     {
-        Task<List<Format>> GetAllFormats();
+        Task<IEnumerable<Format>> GetAllFormats();
         Task<Format> GetFormatWithBooks(int id);
     }
 }

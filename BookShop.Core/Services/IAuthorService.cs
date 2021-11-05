@@ -8,7 +8,7 @@ namespace BookShop.Core.Services
 {
     public interface IAuthorService
     {
-        Task<List<Author>> GetAllAuthors();
+        Task<IEnumerable<Author>> GetAllAuthors();
         Task<Author> GetAuthorWithBooks(int id);
     }
 }

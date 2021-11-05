@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using BookShop.Api.Dtos;
 using BookShop.Core.Models;
+using BookShop.Core.Paging;
 using BookShop.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,14 +26,25 @@ namespace BookShop.Api.Controllers
         }
 
         [HttpGet("GetAllBooks")]
-        public async Task<ActionResult<IEnumerable<BookWithDetailsDto>>> GetAllBooks()
+        public async Task<ActionResult<BooksWithPagination>> GetAllBooks([FromQuery]PagingParameters pagingParams)
         {
-            var books = await bookService.GetAllBooksWithDetails();
+            PagedList<Book> pagedBooks = await bookService.GetAllWithDetailsPagination(pagingParams);
 
-            var booksDto = mapper.Map<IEnumerable<Book>, IEnumerable<BookWithDetailsDto>>(books);
+            ICollection<BookWithDetailsDto> booksDto = mapper.Map<ICollection<Book>, ICollection<BookWithDetailsDto>>(pagedBooks);
 
-            return Ok(booksDto);
+            PaginationDto pagination = new PaginationDto 
+            {
+                TotalPages = pagedBooks.TotalPages,
+                PageSize = pagedBooks.PageSize,
+                CurrentPage = pagedBooks.CurrentPage,
+                TotalCount = pagedBooks.TotalCount
+            };
+
+            var jobsWithPagination = new BooksWithPagination {Books = booksDto, Pagination = pagination}; 
+
+            return Ok(jobsWithPagination);
         }
+
 
         [HttpGet("GetBookById/{id}")]
         public async Task<ActionResult<BookWithDetailsDto>> GetBookById(int id)

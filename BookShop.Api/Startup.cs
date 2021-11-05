@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BookShop.Core;
+using BookShop.Core.Services;
 using BookShop.Data;
+using BookShop.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +32,11 @@ namespace BookShop.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IAuthorService, AuthorService>();
+            services.AddTransient<IBookService, BookService>();
+            services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IFormatService, FormatService>();
+            services.AddTransient<IUserService, UserService>();
 
             services.AddDbContext<BookShopDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default"), x => x.MigrationsAssembly("BookShop.Data")));
 

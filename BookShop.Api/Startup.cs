@@ -38,6 +38,8 @@ namespace BookShop.Api
             services.AddTransient<IFormatService, FormatService>();
             services.AddTransient<IUserService, UserService>();
 
+            services.AddAutoMapper(typeof(Startup));
+
             services.AddDbContext<BookShopDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default"), x => x.MigrationsAssembly("BookShop.Data")));
 
             services.AddControllers();

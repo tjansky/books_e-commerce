@@ -14,7 +14,6 @@ namespace BookShop.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-
     public class BookController : ControllerBase
     {
         private readonly IBookService bookService;

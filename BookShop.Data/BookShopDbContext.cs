@@ -15,6 +15,8 @@ namespace BookShop.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Format> Formats { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
 
 
         public BookShopDbContext(DbContextOptions<BookShopDbContext> options)
@@ -25,6 +27,9 @@ namespace BookShop.Data
         {
             builder
                 .ApplyConfiguration(new BookConfiguration());
+
+            builder
+                .ApplyConfiguration(new OrderConfiguration());
         }
 
     }

@@ -9,5 +9,6 @@ namespace BookShop.Core.Repositories
     public interface IUserRepository : IRepository<User>
     {
         Task<User> GetByIdWithWishlistedBooksAsync(int id);
+        Task<User> GetUserByEmailAsync(string email);
     }
 }

@@ -6,6 +6,7 @@ using BookShop.Core;
 using BookShop.Core.Models;
 using BookShop.Core.Paging;
 using BookShop.Core.Services;
+using BookShop.Core.Sorting;
 
 namespace BookShop.Services
 {
@@ -23,9 +24,9 @@ namespace BookShop.Services
             return await _unitOfWork.Books.GetAllWithDetailsAsync();
         }
 
-        public async Task<PagedList<Book>> GetAllWithDetailsPagination(PagingParameters pagingParams)
+        public async Task<PagedList<Book>> GetAllWithDetailsPagination(PagingParameters pagingParams, SortingParameters sortingParams)
         {
-            return await _unitOfWork.Books.GetAllWithDetailsPaginationAsync(pagingParams);
+            return await _unitOfWork.Books.GetAllWithDetailsPaginationAsync(pagingParams, sortingParams);
         }
 
         public async Task<Book> GetBookWithDetails(int id)

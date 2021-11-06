@@ -7,6 +7,7 @@ using BookShop.Api.Dtos;
 using BookShop.Core.Models;
 using BookShop.Core.Paging;
 using BookShop.Core.Services;
+using BookShop.Core.Sorting;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookShop.Api.Controllers
@@ -26,9 +27,9 @@ namespace BookShop.Api.Controllers
         }
 
         [HttpGet("GetAllBooks")]
-        public async Task<ActionResult<BooksWithPagination>> GetAllBooks([FromQuery]PagingParameters pagingParams)
+        public async Task<ActionResult<BooksWithPagination>> GetAllBooks([FromQuery]PagingParameters pagingParams, [FromQuery]SortingParameters sortingParams)
         {
-            PagedList<Book> pagedBooks = await bookService.GetAllWithDetailsPagination(pagingParams);
+            PagedList<Book> pagedBooks = await bookService.GetAllWithDetailsPagination(pagingParams, sortingParams);
 
             ICollection<BookWithDetailsDto> booksDto = mapper.Map<ICollection<Book>, ICollection<BookWithDetailsDto>>(pagedBooks);
 

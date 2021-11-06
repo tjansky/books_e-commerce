@@ -25,9 +25,9 @@ namespace BookShop.Services
             return user;
         }
 
-        public Task<User> GetUserByEmail(string email)
+        public async Task<User> GetUserByEmail(string email)
         {
-            throw new NotImplementedException();
+            return await _unitOfWork.Users.GetUserByEmailAsync(email);
         }
     }
 }

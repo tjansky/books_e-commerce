@@ -57,5 +57,38 @@ namespace BookShop.Api.Controllers
             return userWithToken;
         }
 
+
+        [HttpPost("login")]
+        public async Task<ActionResult<UserWithTokenDto>> LoginUser([FromBody] LoginUserDto loginUserDto)
+        {
+            // get user from db
+            var user = await userService.GetUserByEmail(loginUserDto.Email);
+
+            if (user == null) return Unauthorized("Invalid credentials");
+
+            using var hmac = new HMACSHA512(user.PasswordSalt);
+
+            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginUserDto.Password));
+            // check if password is correct
+            for (int i = 0; i < computedHash.Length; i++)
+            {
+                if (computedHash[i] != user.PasswordHash[i]) return Unauthorized("Invalid password");
+            }
+
+            // generate token
+            string token = tokenService.CreateToken(user);
+
+            var userWithToken = new UserWithTokenDto
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                Token = token
+            };
+
+            return userWithToken;
+        }
+
     }
 }

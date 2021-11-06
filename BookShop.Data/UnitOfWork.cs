@@ -16,6 +16,7 @@ namespace BookShop.Data
         private CategoryRepository _categoryRepository;
         private FormatRepository _formatRepository;
         private UserRepository _userRepository;
+        private OrderRepository _orderRepository;
 
         public UnitOfWork(BookShopDbContext context)
         {
@@ -31,6 +32,7 @@ namespace BookShop.Data
         public IFormatRepository Formats => _formatRepository ?? new FormatRepository(_context);
 
         public IUserRepository Users => _userRepository ?? new UserRepository(_context);
+        public IOrderRepository Orders => _orderRepository ?? new OrderRepository(_context);
 
         public async Task<int> CommitAsync()
         {

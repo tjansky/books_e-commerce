@@ -17,9 +17,12 @@ namespace BookShop.Api.Mapping
             CreateMap<Author, AuthorDto>();
             CreateMap<Category, CategoryDto>();
             CreateMap<Format, FormatDto>();
+            CreateMap<Order, OrderDto>();
+            CreateMap<OrderItem, OrderItemDto>();
             
             // Resource to Domain
-
+            CreateMap<CreateOrderDto, Order>();
+            CreateMap<CreateOrderItemDto, OrderItem>();
         }
     }
 }

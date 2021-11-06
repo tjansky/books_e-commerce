@@ -13,6 +13,7 @@ namespace BookShop.Core
         ICategoryRepository Categories { get; }
         IFormatRepository Formats { get; }
         IUserRepository Users { get; }
+        IOrderRepository Orders { get; }
         Task<int> CommitAsync();
     }
 }

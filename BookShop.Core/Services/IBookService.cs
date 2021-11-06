@@ -11,7 +11,7 @@ namespace BookShop.Core.Services
     public interface IBookService
     {
         Task<List<Book>> GetAllBooksWithDetails();
-        Task<PagedList<Book>> GetAllWithDetailsPagination(PagingParameters pagingParams, SortingParameters sortingParams);
+        Task<PagedList<Book>> GetAllWithDetailsPagination(PagingParameters pagingParams, SortingParameters sortingParams, string search);
         Task<Book> GetBookWithDetails(int id);
     }
 }

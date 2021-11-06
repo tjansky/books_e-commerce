@@ -27,9 +27,11 @@ namespace BookShop.Api.Controllers
         }
 
         [HttpGet("GetAllBooks")]
-        public async Task<ActionResult<BooksWithPagination>> GetAllBooks([FromQuery]PagingParameters pagingParams, [FromQuery]SortingParameters sortingParams)
+        public async Task<ActionResult<BooksWithPagination>> GetAllBooks([FromQuery] PagingParameters pagingParams,
+                                                                         [FromQuery] SortingParameters sortingParams,
+                                                                         [FromQuery] string search)
         {
-            PagedList<Book> pagedBooks = await bookService.GetAllWithDetailsPagination(pagingParams, sortingParams);
+            PagedList<Book> pagedBooks = await bookService.GetAllWithDetailsPagination(pagingParams, sortingParams, search);
 
             ICollection<BookWithDetailsDto> booksDto = mapper.Map<ICollection<Book>, ICollection<BookWithDetailsDto>>(pagedBooks);
 

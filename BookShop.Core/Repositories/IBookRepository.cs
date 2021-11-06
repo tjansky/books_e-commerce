@@ -11,7 +11,7 @@ namespace BookShop.Core.Repositories
     public interface IBookRepository : IRepository<Book>
     {
         Task<List<Book>> GetAllWithDetailsAsync();
-        Task<PagedList<Book>> GetAllWithDetailsPaginationAsync(PagingParameters pagingParams, SortingParameters sortingParams);
+        Task<PagedList<Book>> GetAllWithDetailsPaginationAsync(PagingParameters pagingParams, SortingParameters sortingParams, string search);
         Task<Book> GetByIdWithDetailsAsync(int id);
     }
 }

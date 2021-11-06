@@ -24,9 +24,9 @@ namespace BookShop.Services
             return await _unitOfWork.Books.GetAllWithDetailsAsync();
         }
 
-        public async Task<PagedList<Book>> GetAllWithDetailsPagination(PagingParameters pagingParams, SortingParameters sortingParams)
+        public async Task<PagedList<Book>> GetAllWithDetailsPagination(PagingParameters pagingParams, SortingParameters sortingParams, string search)
         {
-            return await _unitOfWork.Books.GetAllWithDetailsPaginationAsync(pagingParams, sortingParams);
+            return await _unitOfWork.Books.GetAllWithDetailsPaginationAsync(pagingParams, sortingParams, search);
         }
 
         public async Task<Book> GetBookWithDetails(int id)

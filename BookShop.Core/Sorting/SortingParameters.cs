@@ -9,5 +9,6 @@ namespace BookShop.Core.Sorting
     {
         public int FormatId { get; set; } = 0;
         public int CategoryId { get; set; } = 0;
+        public int AuthorId { get; set; } = 0;
     }
 }

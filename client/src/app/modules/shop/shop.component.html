@@ -1,1 +1,45 @@
-<p>shop works!</p>
+<div *ngIf="pagination">
+    Pagination data: 
+    <div>Current page: <b>{{pagination.currentPage}}</b></div>
+    <div>Total pages: <b>{{pagination.totalPages}}</b></div>
+    <div>Page size: <b>{{pagination.pageSize}}</b></div>
+    <div>Total pages: <b>{{pagination.totalCount}}</b></div>
+</div> <br>
+<button (click)="getBooks()" type="button">Get Books</button>
+
+<div class="shop-container">
+
+    <!-- filters content -->
+    <div class="filter-container">
+        <div>
+            <b>Formats</b>
+            <div *ngFor="let format of formats">
+                {{format.displayName}}
+            </div>
+        </div>
+        <br> <hr> <br>
+        <div>
+            <b>Categories</b>
+            <div *ngFor="let category of categories">
+                {{category.displayName}}
+            </div>
+        </div>
+        <br> <hr> <br>
+        <div>
+            <b>Top Authors</b>
+            <div *ngFor="let author of topAuthors">
+                {{author.displayName}}
+            </div>
+        </div>
+    </div>
+    <!-- end of filters content -->
+    
+    <!-- main content -->
+    <div class="book-cards-container">
+        <div *ngFor="let book of books">
+            <app-book-card [book]="book"></app-book-card>
+        </div>
+    </div>
+    <!-- end of main content -->
+    
+</div>

@@ -1,0 +1,22 @@
+.shop-container{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.filter-container{
+    width: 350px;
+    height: 400px;
+    background-color: gray;
+}
+
+.book-cards-container{
+    width: 900px;
+    height: 1100px;
+    background-color: gray;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+

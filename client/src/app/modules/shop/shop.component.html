@@ -14,21 +14,27 @@
         <div>
             <b>Formats</b>
             <div *ngFor="let format of formats">
-                {{format.displayName}}
+                <div (click)="onFormatSelected(format.id)">
+                    {{format.displayName}}
+                </div>
             </div>
         </div>
         <br> <hr> <br>
         <div>
             <b>Categories</b>
             <div *ngFor="let category of categories">
-                {{category.displayName}}
+                <div (click)="onCategorySelected(category.id)">
+                    {{category.displayName}}
+                </div>
             </div>
         </div>
         <br> <hr> <br>
         <div>
             <b>Top Authors</b>
             <div *ngFor="let author of topAuthors">
-                {{author.displayName}}
+                <div (click)="onTopAuthorSelected(author.id)">
+                    {{author.displayName}}
+                </div>
             </div>
         </div>
     </div>

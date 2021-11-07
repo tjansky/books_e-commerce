@@ -67,6 +67,12 @@ namespace BookShop.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BookShop.Api", Version = "v1" });
             });
+
+            services.AddCors(opt => {
+                opt.AddPolicy("CorsPolicy", policy => {
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200", "http://localhost:4200");
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,7 +89,7 @@ namespace BookShop.Api
 
             app.UseRouting();
 
-            // here goes cors
+            app.UseCors("CorsPolicy");
 
             app.UseAuthentication();
 

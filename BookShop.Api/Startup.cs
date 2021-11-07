@@ -42,6 +42,7 @@ namespace BookShop.Api
             services.AddTransient<IFormatService, FormatService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IPaymentService, PaymentService>();
 
             services.AddAutoMapper(typeof(Startup));
 

@@ -28,13 +28,18 @@ namespace BookShop.Services
                     BookName = book.DisplayName,
                     PictureUrl = book.Image,
                     Price = book.Price,
-                    Quantity = orderItem.Quantity
+                    Quantity = orderItem.Quantity,
                 };
                 orderItemsToAdd.Add(newOrderItem);
             }
 
             // calculate subtotal
             var subtotal = orderItemsToAdd.Sum(item => item.Price * item.Quantity);
+
+
+            // check if order with same PaymentIntendId exists and delete it 
+            // TODO
+
             
             // create order
             var orderToAdd = new Order{
@@ -47,7 +52,8 @@ namespace BookShop.Services
                 ShipToZipcode = orderFromClient.ShipToZipcode,
                 SubTotal = subtotal,
                 Status = "Pending",
-                OrderItems = orderItemsToAdd
+                OrderItems = orderItemsToAdd,
+                PaymentIntendId = orderFromClient.PaymentIntendId
             };
 
             // save to db

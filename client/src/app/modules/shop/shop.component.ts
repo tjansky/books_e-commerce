@@ -37,7 +37,7 @@ export class ShopComponent implements OnInit {
 
     // subscribe on search subject
     this.shopService.searchBooksQuery$.subscribe(search => {
-      console.log("subject subscribed! ", search);
+      console.log("Search subject subscribed in shop component with value: ", search);
       if (search) {
         this.bookParams.search = search;
         //this.getBooks();

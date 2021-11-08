@@ -15,7 +15,6 @@ export class BookApiService {
   apiUrl = environment.baseUrl;
 
   getAllBooks(bookParams: BookParams): Observable<BooksWithPagination> {
-    console.log(bookParams);
     let params = new HttpParams();
     
     if (bookParams.formatId !== 0) {

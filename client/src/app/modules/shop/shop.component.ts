@@ -5,6 +5,7 @@ import { CategoryApiService } from 'src/app/data/services/category-api.service';
 import { FormatApiService } from 'src/app/data/services/format-api.service';
 import { Author, Book, BooksWithPagination, Category, Format, Pagination } from 'src/app/data/types/booksWithPagination';
 import { BookParams } from 'src/app/shared/models/bookParams';
+import { ShopService } from './shop.service';
 
 @Component({
   selector: 'app-shop',
@@ -16,7 +17,8 @@ export class ShopComponent implements OnInit {
   constructor(private bookApiService: BookApiService, 
               private authorApiService: AuthorApiService,
               private formatApiService: FormatApiService,
-              private categoryApiService: CategoryApiService) { };
+              private categoryApiService: CategoryApiService,
+              private shopService: ShopService) { };
 
   books: Book[] = [];
   pagination: Pagination;
@@ -32,6 +34,18 @@ export class ShopComponent implements OnInit {
     this.getTopAuthors();
     this.getFormats();
     this.getCategories();
+
+    // subscribe on search subject
+    this.shopService.searchBooksQuery$.subscribe(search => {
+      console.log("subject subscribed! ", search);
+      if (search) {
+        this.bookParams.search = search;
+        //this.getBooks();
+      } else {
+        this.bookParams.search = "";
+      } 
+      this.getBooks();
+    })
   };
 
   getBooks() {

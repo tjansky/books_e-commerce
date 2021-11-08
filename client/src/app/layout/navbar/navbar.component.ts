@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ShopService } from 'src/app/modules/shop/shop.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  @ViewChild('search', {static: true}) searchTerm: ElementRef;
 
-  constructor() { }
+  constructor(private shopService: ShopService) { }
 
   ngOnInit(): void {
+  }
+
+  onSearchClick() {
+    const search = this.searchTerm.nativeElement.value;
+    console.log(search)
+    this.shopService.setSearchQuery(search);
   }
 
 }

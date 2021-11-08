@@ -44,6 +44,7 @@ export class ShopComponent implements OnInit {
       } else {
         this.bookParams.search = "";
       } 
+      this.bookParams.pageNumber = 1;
       this.getBooks();
     })
   };
@@ -51,6 +52,7 @@ export class ShopComponent implements OnInit {
   getBooks() {
     // while we wait for books to be retrvied, empty old books list
     this.books = [];
+    this.pagination = null; // this has to be here otherwise pagination doesnt get updated for some reason
     // get books and pagination data
     this.bookApiService.getAllBooks(this.bookParams).subscribe((res: BooksWithPagination) => {
       //console.log(res);
@@ -100,15 +102,17 @@ export class ShopComponent implements OnInit {
     this.getBooks();
   }
 
-  onPaginationClick() {
-    // 
-  }
-
-  onSearch() {
-    this.bookParams.search = "sapiens";
-    this.bookParams.pageNumber = 1;
+  onPaginationClick(pagination: {pageNum: number, pageSize: number}) {
+    console.log(pagination);
+    this.bookParams.pageNumber = pagination.pageNum;
     this.getBooks();
   }
+
+  // onSearch() {
+  //   this.bookParams.search = "sapiens";
+  //   this.bookParams.pageNumber = 1;
+  //   this.getBooks();
+  // }
 
   onReset() {
     // clear search input

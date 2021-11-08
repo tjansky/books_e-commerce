@@ -1,0 +1,27 @@
+.pagination{
+    display: flex;
+    gap: 4px;
+}
+
+.square-container{
+    display: flex;
+    gap: 4px;
+}
+
+.square{
+    background-color: transparent;
+    color: #3b4045;
+    border: 1px solid #d6d9dc;
+    border-radius: 3px;
+    font-size: 18px;
+}
+
+
+.square:hover{
+    background-color: rgb(193, 203, 212);
+}
+
+.active-square{
+    background-color: #f48225!important;
+    color: white;
+}

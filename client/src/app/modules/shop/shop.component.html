@@ -4,7 +4,15 @@
     <div>Total pages: <b>{{pagination.totalPages}}</b></div>
     <div>Page size: <b>{{pagination.pageSize}}</b></div>
     <div>Total pages: <b>{{pagination.totalCount}}</b></div>
+
+    <app-book-pagination 
+        (newSquareClicked)="onPaginationClick($event)" 
+        [currentPage]="pagination.currentPage" 
+        [totalCount]="pagination.totalPages" 
+        [pageSize]="pagination.pageSize">
+    </app-book-pagination>
 </div> <br>
+
 <button (click)="getBooks()" type="button">Get Books</button>
 
 <div class="shop-container">

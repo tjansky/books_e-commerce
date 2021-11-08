@@ -1,7 +1,21 @@
 <div>
-    <div *ngIf="book">
-        <h1>Title: {{book.displayName}}</h1>
-        <h2>Price: {{book.price | currency}}</h2>
-        <button>ADD TO BASKET</button>
+
+    <div *ngIf="book" class="book-details-container">
+        <div class="details-payment-container">
+            <div class="main-book-details">
+                <h1>Title: {{book.displayName}}</h1>
+            </div>
+            <div class="payment-info">
+                <div><h2>{{book.price | currency}}</h2></div>
+                <div><button>Add to basket</button></div>
+                <div><button>Add to wishlist</button></div>
+            </div>
+        </div>
+        <div class="book-details">
+            Product details
+        </div>
+        <div class="often-bought">
+            Often bought together
+        </div>
     </div>
 </div>

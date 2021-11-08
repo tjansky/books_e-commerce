@@ -1,0 +1,23 @@
+.book-details-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.details-payment-container{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+}
+
+.main-book-details{
+    background-color: cornflowerblue;
+    min-height: 500px;
+    min-width: 800px;
+}
+
+.payment-info{
+    background-color: cornflowerblue;
+    min-height: 500px;
+    min-width: 300px;
+}

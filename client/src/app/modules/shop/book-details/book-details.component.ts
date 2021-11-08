@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { BookApiService } from 'src/app/data/services/book-api.service';
+import { Book } from 'src/app/data/types/booksWithPagination';
 
 @Component({
   selector: 'app-book-details',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private bookApiService: BookApiService, private activatedRoute: ActivatedRoute) { }
+  book: Book;
 
   ngOnInit(): void {
+    this.loadBookDetails();
+  }
+
+  loadBookDetails() {
+    const bookId = +this.activatedRoute.snapshot.paramMap.get('id');
+    this.bookApiService.getBookDetailsById(bookId).subscribe((res: Book) => {
+      this.book = res;
+      //console.log(this.book);
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  addBookToBasket() {
+
   }
 
 }

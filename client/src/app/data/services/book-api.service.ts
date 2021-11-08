@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BookParams } from 'src/app/shared/models/bookParams';
 import { environment } from 'src/environments/environment';
-import { BooksWithPagination } from '../types/booksWithPagination';
+import { Book, BooksWithPagination } from '../types/booksWithPagination';
 
 
 @Injectable({
@@ -40,5 +40,9 @@ export class BookApiService {
   
     
     return this.http.get<BooksWithPagination>(this.apiUrl + "/Book/GetAllBooks", {params});
+  }
+
+  getBookDetailsById(bookId: number): Observable<Book> {
+    return this.http.get<Book>(this.apiUrl + "/Book/GetBookById/" + bookId);
   }
 }

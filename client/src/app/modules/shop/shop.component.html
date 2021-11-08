@@ -51,7 +51,7 @@
     <!-- main content -->
     <div class="book-cards-container">
         <div *ngFor="let book of books">
-            <app-book-card [book]="book"></app-book-card>
+            <app-book-card routerLink="/shop/{{book.id}}" [book]="book"></app-book-card>
         </div>
     </div>
     <!-- end of main content -->

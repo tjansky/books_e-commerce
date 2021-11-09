@@ -22,7 +22,7 @@
     </div>
     <div style="background-color: aquamarine;">
         <div>Total: {{(basketTotal$ | async) | currency}}</div>
-        <div><button>Checkout</button></div>
+        <div><button type="button" (click)="onCheckoutClick()">Checkout</button></div>
     </div>
     
 </div>

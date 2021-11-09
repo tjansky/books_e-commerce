@@ -1,5 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { User } from 'src/app/data/types/user';
 import { ShopService } from 'src/app/modules/shop/shop.service';
 
 @Component({
@@ -9,8 +11,11 @@ import { ShopService } from 'src/app/modules/shop/shop.service';
 })
 export class NavbarComponent implements OnInit {
   @ViewChild('search', {static: true}) searchTerm: ElementRef;
+  loggedUser: User;
 
-  constructor(private shopService: ShopService, private router: Router) { }
+  constructor(private shopService: ShopService, private router: Router, private authService: AuthService) {
+    this.authService.currentUser.subscribe(x => this.loggedUser = x);
+   }
 
   ngOnInit(): void {
   }
@@ -28,6 +33,14 @@ export class NavbarComponent implements OnInit {
     }
 
     this.shopService.setSearchQuery(search);
+  }
+
+  onSignOut() {
+    this.authService.logout();
+  }
+
+  onSignIn() {
+    this.router.navigateByUrl("/account/login");
   }
 
 }

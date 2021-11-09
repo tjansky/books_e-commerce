@@ -1,11 +1,14 @@
 <div class="navbar">
     <div class="first-part">
         <div routerLink="/shop">Home logo</div>
-        <div>Hello Tomislav</div>
+        <div *ngIf="loggedUser">Hello {{loggedUser.firstName}}</div>
         <div>Order Status</div>
         <div>Wishlist</div>
-        <div>Sign out</div>
+        
         <div routerLink="/basket">Go To Basket</div>
+
+        <div *ngIf="loggedUser" (click)="onSignOut()">Sign out</div>
+        <div *ngIf="loggedUser == null" (click)="onSignIn()">Sign in/Join</div>
     </div>
     <div class="second-part">
         <div routerLink="/shop">

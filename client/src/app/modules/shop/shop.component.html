@@ -4,6 +4,7 @@
     <div>Total pages: <b>{{pagination.totalPages}}</b></div>
     <div>Page size: <b>{{pagination.pageSize}}</b></div>
     <div>Total pages: <b>{{pagination.totalCount}}</b></div>
+    <br> <div>Basket: <i class="fas fa-shopping-basket"></i> Items: </div> <br>
 
     <app-book-pagination 
         (newSquareClicked)="onPaginationClick($event)" 
@@ -51,7 +52,7 @@
     <!-- main content -->
     <div class="book-cards-container">
         <div *ngFor="let book of books">
-            <app-book-card routerLink="/shop/{{book.id}}" [book]="book"></app-book-card>
+            <app-book-card [book]="book"></app-book-card>
         </div>
     </div>
     <!-- end of main content -->

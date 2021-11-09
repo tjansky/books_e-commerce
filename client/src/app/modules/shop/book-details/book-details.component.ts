@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BookApiService } from 'src/app/data/services/book-api.service';
 import { Book } from 'src/app/data/types/booksWithPagination';
+import { BasketService } from '../../basket/basket.service';
 
 @Component({
   selector: 'app-book-details',
@@ -10,7 +11,7 @@ import { Book } from 'src/app/data/types/booksWithPagination';
 })
 export class BookDetailsComponent implements OnInit {
 
-  constructor(private bookApiService: BookApiService, private activatedRoute: ActivatedRoute) { }
+  constructor(private bookApiService: BookApiService, private activatedRoute: ActivatedRoute, private basketService: BasketService) { }
   book: Book;
 
   ngOnInit(): void {
@@ -27,8 +28,8 @@ export class BookDetailsComponent implements OnInit {
     });
   }
 
-  addBookToBasket() {
-
+  addBookToBasket(book: Book) {
+    this.basketService.addItemToBasket(book);
   }
 
 }

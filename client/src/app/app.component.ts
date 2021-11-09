@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BasketService } from './modules/basket/basket.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'client';
+
+  constructor(private basketService: BasketService) {}
+
+  ngOnInit(): void {
+    this.loadBasket();
+  }
+
+  loadBasket() {
+    const currentBasket = this.basketService.getBasketFromLocStorage();
+    if (currentBasket) {
+      this.basketService.setBasket(currentBasket);
+    }
+  }
+
 }

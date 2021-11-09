@@ -1,0 +1,28 @@
+<div *ngIf="(basket$ | async) === null">
+    There are no items in your basket
+</div>
+
+<div *ngIf="(basket$ | async) as basket">
+    
+    <div *ngFor="let item of basket.items">
+        <hr>
+        <div>
+            <div>{{item.title}}</div>
+            <div>{{item.price | currency}}</div>
+            <div><img src="{{item.image}}" alt=""></div>
+        </div>
+        <br>
+        <div>
+            Quantity: {{item.quantity}} 
+            <button type="button" (click)="decrementItemQuantity(item)">-</button> 
+            <button type="button" (click)="incrementItemQuantity(item)">+</button>
+            <button type="button" (click)="removeBasketItem(item)">Remove</button>
+        </div>
+        <hr>
+    </div>
+    <div style="background-color: aquamarine;">
+        <div>Total: {{(basketTotal$ | async) | currency}}</div>
+        <div><button>Checkout</button></div>
+    </div>
+    
+</div>

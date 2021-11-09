@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Book } from 'src/app/data/types/booksWithPagination';
+import { BasketService } from '../../basket/basket.service';
 
 @Component({
   selector: 'app-book-card',
@@ -9,9 +10,13 @@ import { Book } from 'src/app/data/types/booksWithPagination';
 export class BookCardComponent implements OnInit {
   @Input() book: Book;
 
-  constructor() { }
+  constructor(private basketService: BasketService) { }
 
   ngOnInit(): void {
+  }
+
+  onAddInBasket(book: Book) {
+    this.basketService.addItemToBasket(book);
   }
 
 }

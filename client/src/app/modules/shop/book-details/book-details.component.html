@@ -7,7 +7,7 @@
             </div>
             <div class="payment-info">
                 <div><h2>{{book.price | currency}}</h2></div>
-                <div><button>Add to basket</button></div>
+                <div><button type="button" (click)="addBookToBasket(book)">Add to basket</button></div>
                 <div><button>Add to wishlist</button></div>
             </div>
         </div>

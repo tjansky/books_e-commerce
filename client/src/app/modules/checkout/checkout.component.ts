@@ -123,6 +123,7 @@ export class CheckoutComponent implements OnInit, AfterViewInit, OnDestroy {
       shipToStreet: "test",
       shipToCity: "test",
       shipToZipcode: "test",
+      paymentIntendId: basket.paymentIntentId,
       orderItems: orderItems
     }
   }

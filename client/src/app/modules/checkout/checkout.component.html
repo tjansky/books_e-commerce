@@ -32,30 +32,32 @@
 
 <div>
     <h3>Payment</h3>
-    <div>
+    <!-- <div>
         <label>Card Type</label>
         <select >
             <option>Visa</option>
             <option>Master Class</option>
         </select>
-    </div>
-    <div>
-        <label>Card Number*</label>
-        <input type="text">
-    </div>
-    <div>
-        <label>Datum vrijedi*</label>
-        <input type="text">
-        <input type="text">
-    </div>
+    </div> -->
+    <form [formGroup]="checkoutForm">
     <div>
         <label>Name on Card*</label>
-        <input type="text">
+        <input formControlName="nameOnCard" type="text">
     </div>
     <div>
-        <label>CVV2 Number*</label>
-        <input type="text">
+        <div #cardNumber></div>
+        <ng-container *ngIf="cardErrors">
+            <span>{{cardErrors}}</span>
+        </ng-container>
+    </div>
+    <div>
+        <div #cardExpiry></div>
+    </div>
+    
+    <div>
+        <div #cardCvc></div>
     </div>
     <br>
     <button>Buy now</button>
+</form>
 </div>

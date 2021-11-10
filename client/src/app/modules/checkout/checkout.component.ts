@@ -103,6 +103,7 @@ export class CheckoutComponent implements OnInit, AfterViewInit, OnDestroy {
           // payment went successfuly
           console.log("Payment went successfuly");
           // delete basket
+          this.basketService.deleteBasket();
           // navigate to orders
         } else {
           console.log("Payment failed");

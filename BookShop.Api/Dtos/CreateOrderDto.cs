@@ -12,6 +12,7 @@ namespace BookShop.Api.Dtos
         public string ShipToStreet { get; set; }
         public string ShipToCity { get; set; }
         public string ShipToZipcode { get; set; }
+        public string PaymentIntendId { get; set; }
         // public decimal SubTotal { get; set; }
         // public string Status { get; set; }
         // public string PaymentIntendId { get; set; }

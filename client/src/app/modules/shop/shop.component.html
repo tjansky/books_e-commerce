@@ -1,10 +1,4 @@
 <div *ngIf="pagination">
-    Pagination data: 
-    <div>Current page: <b>{{pagination.currentPage}}</b></div>
-    <div>Total pages: <b>{{pagination.totalPages}}</b></div>
-    <div>Page size: <b>{{pagination.pageSize}}</b></div>
-    <div>Total pages: <b>{{pagination.totalCount}}</b></div>
-    <br> <div>Basket: <i class="fas fa-shopping-basket"></i> Items: </div> <br>
 
     <app-book-pagination 
         (newSquareClicked)="onPaginationClick($event)" 

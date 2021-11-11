@@ -1,4 +1,43 @@
 .footer{
-    height: 270px;
-    background-color: blueviolet;
+    background-color: #403042;
+    color: #fff;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-titles{
+    color: #fff;
+    font-size: 1.4rem;
+    margin-bottom: 14px;
+}
+
+.link-container{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.link-container div{
+    border-bottom: 1.2px solid rgba(255,255,255,0.1);
+    padding: 1rem 0.5rem;
+    width: 200px;
+}
+
+.link-container div:hover{
+    cursor: pointer;
+    
+}
+
+.footer-section{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.cards-footer-section{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 200px;
 }

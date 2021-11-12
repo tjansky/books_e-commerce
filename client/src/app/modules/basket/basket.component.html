@@ -2,6 +2,14 @@
     There are no items in your basket
 </div>
 
+<div>
+    <app-book-summary></app-book-summary>
+    <app-book-summary></app-book-summary>
+    <app-book-summary></app-book-summary>
+    <app-book-summary></app-book-summary>
+    <app-book-summary></app-book-summary>
+</div>
+
 <div *ngIf="(basket$ | async) as basket">
     
     <div *ngFor="let item of basket.items">

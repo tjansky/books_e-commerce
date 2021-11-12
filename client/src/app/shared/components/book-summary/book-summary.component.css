@@ -1,0 +1,97 @@
+.bs-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+
+    border-bottom: 0.1rem solid #f0f0f0;
+    padding: 1.5rem 0;
+}
+
+.bs-first{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.bs-info{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.title{
+    font-size: 23px;
+    font-weight: bold;
+    font-family: Roboto, sans-serif;
+    margin-bottom: 12px;
+}
+
+.subtitle{
+    font-size: 17px;
+    font-family: Roboto, sans-serif;
+}
+
+.info-price{
+    font-size: 21px;
+    font-weight: 520;
+    font-family: Roboto, sans-serif;
+    color: #ff0072;
+}
+
+.info-avaliable{
+    font-size: 15px;
+    font-family: Roboto, sans-serif;
+}
+
+.bs-second{
+    margin-left: auto;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
+    justify-content: center;
+}
+
+.bs-second div{
+    text-align: center;
+}
+
+.quantity-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.main-price{
+    font-size: 25px;
+    font-weight: 520;
+    font-family: Roboto, sans-serif;
+    color: #ff0072;
+}
+
+.remove-button{
+    background-color: #ffffff;
+    color: #999;
+    border: 1px solid #ccc;
+    height: 3rem;
+    min-width: 9rem;
+    border-radius: 0.6rem;
+}
+
+.remove-button:hover{
+    background-color: #f0f0f0;
+}
+
+/* Maybe will have to increase max width number */
+@media only screen and (max-width: 740px) {
+    .bs-second{
+        margin-top: 20px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}

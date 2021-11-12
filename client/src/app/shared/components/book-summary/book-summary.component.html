@@ -1,25 +1,25 @@
 <div class="bs-container">
     <div class="bs-first">
-        <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/0605/9780060555665.jpg" alt="">
+        <img src="{{basketItem.image}}" alt="">
         <div class="bs-info">
-            <div class="title">The Intelligent Investor</div>
-            <div class="subtitle">Paperback, English | Benjamin Graham</div>
-            <div class="info-price">17,15 $</div>
+            <div class="title">{{basketItem.title}}</div>
+            <div class="subtitle">Paperback, English | Benjamin Author</div>
+            <div class="info-price">{{basketItem.price | currency}}</div>
             <div class="info-avaliable">Available. Expected delivery to Croatia in 16-21 business days.</div>
         </div>
     </div>
 
     <div class="bs-second">
         <div class="quantity-container">
-            <button><i class="fas fa-minus"></i></button>
-            <div>1</div>
-            <button><i class="fas fa-plus"></i></button>
+            <button type="button" (click)="decrementItemQuantity()"><i class="fas fa-minus"></i></button>
+            <div>{{basketItem.quantity}}</div>
+            <button type="button" (click)="incrementItemQuantity()"><i class="fas fa-plus"></i></button>
         </div>
         <div class="main-price">
-            17,15 $
+            {{basketItem.quantity * basketItem.price | currency}}
         </div>
         <div>
-            <button class="remove-button">Remove</button>
+            <button (click)="removeBasketItem()" class="remove-button">Remove</button>
         </div>
     </div>
 </div>

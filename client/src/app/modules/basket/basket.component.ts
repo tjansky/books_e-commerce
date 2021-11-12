@@ -20,17 +20,17 @@ export class BasketComponent implements OnInit {
     this.basketTotal$ = this.basketService.basketTotal$;
   }
 
-  removeBasketItem(item: Item) {
-    this.basketService.removeItemFromBasket(item);
-  }
+  // removeBasketItem(item: Item) {
+  //   this.basketService.removeItemFromBasket(item);
+  // }
 
-  incrementItemQuantity(item: Item) {
-    this.basketService.incrementItemQuantity(item);
-  }
+  // incrementItemQuantity(item: Item) {
+  //   this.basketService.incrementItemQuantity(item);
+  // }
 
-  decrementItemQuantity(item: Item) {
-    this.basketService.decrementItemQuantity(item);
-  }
+  // decrementItemQuantity(item: Item) {
+  //   this.basketService.decrementItemQuantity(item);
+  // }
 
   onCheckoutClick() {
     this.router.navigateByUrl("/checkout");

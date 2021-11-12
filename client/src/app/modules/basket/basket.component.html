@@ -1,16 +1,26 @@
+
+
+<div *ngIf="(basket$ | async) as basket" class="basket-card-container">
+
+    <div *ngFor="let item of basket.items">
+        <app-book-summary [basketItem]="item"></app-book-summary>
+    </div>
+
+    <div style="background-color: aquamarine;">
+        <div>Total: {{(basketTotal$ | async) | currency}}</div>
+        <div><button type="button" (click)="onCheckoutClick()">Checkout</button></div>
+    </div>
+</div>
+
+
+
+<br> <br>
+
 <div *ngIf="(basket$ | async) === null">
     There are no items in your basket
 </div>
 
-<div>
-    <app-book-summary></app-book-summary>
-    <app-book-summary></app-book-summary>
-    <app-book-summary></app-book-summary>
-    <app-book-summary></app-book-summary>
-    <app-book-summary></app-book-summary>
-</div>
-
-<div *ngIf="(basket$ | async) as basket">
+<!-- <div *ngIf="(basket$ | async) as basket">
     
     <div *ngFor="let item of basket.items">
         <hr>
@@ -33,4 +43,4 @@
         <div><button type="button" (click)="onCheckoutClick()">Checkout</button></div>
     </div>
     
-</div>
+</div> -->

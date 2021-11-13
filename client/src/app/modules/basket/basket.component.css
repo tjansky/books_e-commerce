@@ -1,4 +1,142 @@
 .basket-card-container{
-    margin-left: 20px;
+    margin-left: 25px;
+    margin-right: 25px;
+    background-color: #ffffff;
+}
+
+.basket-heading{
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.basket-info{
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 8px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: 95px;
+
+}
+
+.basket-info-btn-con{
+    margin-left: auto;
+    margin-right: 25px;
+}
+
+.basket-info-text{
+    margin-left: 25px;
+}
+
+.basket-footer{
+    margin-top: 8px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    display: flex;
+}
+
+.basket-info-text{
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+}
+
+.basket-heading{
+    font-family: Roboto, sans-serif;
+    font-size: 23px;
+    font-weight: 520;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.delivery-row{
+    display: flex;
+    margin-bottom: 13px;
+}
+
+.delivery-row div{
+    width: 180px;
+    text-align: right;
+    font-family: Roboto, sans-serif;
+    font-size: 17px;
+}
+
+.total-row{
+    display: flex;
+}
+
+.total-row div{
+    width: 180px;
+    text-align: right;
+    font-family: Roboto, sans-serif;
+    font-size: 19px;
+    font-weight: 550;
+    color: #ff0072;
+}
+
+.row-conatiner{
+    margin-left: auto;
     margin-right: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.button-row{
+    text-align: right;
+    margin-top: 17px;
+}
+
+.checkout-btn{
+    background-color: #10bbd5;
+    color: #fff;
+    text-align: center;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: Roboto, sans-serif;
+    border: none;
+    width: 210px;
+    height: 38px;
+}
+
+.checkout-btn:hover{
+    background-color: #29d5ef;
+}
+
+.no-basket-info{
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    background-color: #ffffff;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+}
+
+.con-shop-btn{
+    background-color: #cacaca;
+    color: #46515e;
+    text-align: center;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: Roboto, sans-serif;
+    border: none;
+    width: 210px;
+    height: 40px;
+}
+
+.con-shop-btn:hover{
+    background-color: #d7d7d7;
 }

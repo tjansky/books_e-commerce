@@ -3,7 +3,7 @@
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
-
+    margin-left: 15px;
     border-bottom: 0.1rem solid #f0f0f0;
     padding: 1.5rem 0;
 }

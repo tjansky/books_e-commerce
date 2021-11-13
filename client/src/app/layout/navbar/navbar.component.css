@@ -97,12 +97,21 @@
 }
 
 .button-search{
-    height: 42px;
-    width: 150px;
     background-color: #10bbd5;
-    color: white;
+    color: #fff;
+    text-align: center;
     border-radius: 0.5rem;
-    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 17px;
+    font-family: Roboto, sans-serif;
+    border: none;
+    width: 150px;
+    height: 42px;
+}
+
+.button-search:hover{
+    background-color: #29d5ef;
 }
 
 .search-icon{

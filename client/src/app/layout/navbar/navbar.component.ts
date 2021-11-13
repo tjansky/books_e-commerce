@@ -1,8 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { User } from 'src/app/data/types/user';
+import { BasketService } from 'src/app/modules/basket/basket.service';
 import { ShopService } from 'src/app/modules/shop/shop.service';
+import { Basket } from 'src/app/shared/models/basket';
 
 @Component({
   selector: 'app-navbar',
@@ -12,12 +15,14 @@ import { ShopService } from 'src/app/modules/shop/shop.service';
 export class NavbarComponent implements OnInit {
   @ViewChild('search', {static: true}) searchTerm: ElementRef;
   loggedUser: User;
+  basket$: Observable<Basket>;
 
-  constructor(private shopService: ShopService, private router: Router, private authService: AuthService) {
+  constructor(private basketService: BasketService, private shopService: ShopService, private router: Router, private authService: AuthService) {
     this.authService.currentUser.subscribe(x => this.loggedUser = x);
    }
 
   ngOnInit(): void {
+    this.basket$ = this.basketService.basket$;
   }
 
   onSearchClick() {

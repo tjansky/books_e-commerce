@@ -65,7 +65,7 @@
         </div>
     </div>
     <div routerLink="/basket" class="basket-container">
-        <div>2</div>
+        <div>{{(basket$ | async)?.items?.length ? (basket$ | async)?.items?.length : 0}}</div>
         <i class="fas fa-shopping-basket fa-lg"></i>
     </div>
 </div>

@@ -1,4 +1,4 @@
-<div *ngIf="pagination">
+<!-- <div *ngIf="pagination">
 
     <app-book-pagination 
         (newSquareClicked)="onPaginationClick($event)" 
@@ -6,13 +6,13 @@
         [totalCount]="pagination.totalPages" 
         [pageSize]="pagination.pageSize">
     </app-book-pagination>
-</div> <br>
+</div> <br> -->
 
-<button (click)="getBooks()" type="button">Get Books</button>
 
 <div class="shop-container">
 
     <!-- filters content -->
+
     <div class="filter-container">
         <div>
             <b>Formats</b>
@@ -43,12 +43,38 @@
     </div>
     <!-- end of filters content -->
     
-    <!-- main content -->
-    <div class="book-cards-container">
-        <div *ngFor="let book of books">
-            <app-book-card [book]="book"></app-book-card>
+    
+    <div class="wrraper-cards">
+        <!-- pagination -->
+        <div>
+            <app-book-pagination *ngIf="pagination"
+            (newSquareClicked)="onPaginationClick($event)" 
+            [currentPage]="pagination.currentPage" 
+            [totalCount]="pagination.totalPages" 
+            [pageSize]="pagination.pageSize">
+            </app-book-pagination>
         </div>
+        <!-- end of pagination -->
+
+        <!-- main content -->
+        <div class="book-cards-container">
+            <div *ngFor="let book of books">
+                <app-book-card [book]="book"></app-book-card>
+            </div>
+        </div>
+        <!-- end of main content -->
+
+        <!-- pagination -->
+        <div>
+            <app-book-pagination *ngIf="pagination"
+            (newSquareClicked)="onPaginationClick($event)" 
+            [currentPage]="pagination.currentPage" 
+            [totalCount]="pagination.totalPages" 
+            [pageSize]="pagination.pageSize">
+            </app-book-pagination>
+        </div>
+        <!-- end of pagination -->
     </div>
-    <!-- end of main content -->
+    
     
 </div>

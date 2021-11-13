@@ -8,8 +8,8 @@
 </div> -->
 
 <div class="book-card">
-    <img src="{{book.image}}" alt="">
-    <div class="title">{{book.displayName}}</div>
+    <img routerLink="/shop/{{book.id}}" src="{{book.image}}" alt="">
+    <div routerLink="/shop/{{book.id}}" class="title">{{book.displayName}}</div>
     <div class="author"><span>{{book.author.displayName}}</span></div>
     <div class="format">{{book.format.displayName}}</div>
     <div class="price">{{book.price | currency}}</div>

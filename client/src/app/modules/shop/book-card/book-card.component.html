@@ -1,8 +1,17 @@
-<div class="book-card">
+<!-- <div class="book-card">
     <div routerLink="/shop/{{book.id}}"><img src="{{book.image}}"></div>
     <div routerLink="/shop/{{book.id}}">{{book.displayName}}</div>
     <div>{{book.author.displayName}}</div>
     <div>{{book.format.displayName}}</div>
     <div>{{book.price}}</div>
     <div><button type="button" (click)="onAddInBasket(book)">Add to basket</button></div>
+</div> -->
+
+<div class="book-card">
+    <img src="{{book.image}}" alt="">
+    <div class="title">{{book.displayName}}</div>
+    <div class="author"><span>{{book.author.displayName}}</span></div>
+    <div class="format">{{book.format.displayName}}</div>
+    <div class="price">{{book.price | currency}}</div>
+    <button (click)="onAddInBasket(book)" class="add-btn" type="button">Add to basket</button>
 </div>

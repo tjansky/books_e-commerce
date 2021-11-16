@@ -114,8 +114,8 @@ export class ShopComponent implements OnInit {
   //   this.getBooks();
   // }
 
-  onReset() {
-    // clear search input
+  onFilterReset() {
+    // TODO - clear search input
     this.bookParams = new BookParams();
     this.getBooks();
   }

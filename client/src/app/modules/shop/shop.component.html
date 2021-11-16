@@ -12,10 +12,9 @@
 <div class="shop-container">
 
     <!-- filters content -->
-
     <div class="filter-container">
-        <div>
-            <b>Formats</b>
+        <div class="filter-section">
+            <div class="filter-title">Formats</div>
             <div *ngFor="let format of formats">
                 <div (click)="onFormatSelected(format.id)">
                     {{format.displayName}}
@@ -23,8 +22,8 @@
             </div>
         </div>
         
-        <div>
-            <b>Categories</b>
+        <div class="filter-section">
+            <div class="filter-title">Categories</div>
             <div *ngFor="let category of categories">
                 <div (click)="onCategorySelected(category.id)">
                     {{category.displayName}}
@@ -32,14 +31,16 @@
             </div>
         </div>
         
-        <div>
-            <b>Top Authors</b>
+        <div class="filter-section">
+            <div class="filter-title">Top Authors</div>
             <div *ngFor="let author of topAuthors">
                 <div (click)="onTopAuthorSelected(author.id)">
                     {{author.displayName}}
                 </div>
             </div>
         </div>
+
+        <button class="reset-filter">Reset filters</button>
     </div>
     <!-- end of filters content -->
     

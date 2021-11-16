@@ -6,15 +6,47 @@
 }
 
 .filter-container{
-    width: 150px;
-    height: 400px;
-    background-color: gray;
+    min-width: 150px;
+    height: 430px;
+    background-color: white;
     min-width: 230px;
     display: flex;
     flex-direction: column;
     margin-top: 18px;
     margin-left: 25px;
+    border: 3px solid #ddd;
 }
+
+.filter-section{
+    margin: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.filter-section div{
+    margin: 4px;
+}
+
+
+.filter-section div div{
+    cursor: pointer;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.filter-title{
+    font-size: 21px;
+    font-weight:600;
+    color: rgb(68, 66, 66);
+    /* border-bottom: 1px solid #ddd; */
+}
+
+.reset-filter{
+    width: 50%;
+    margin-left: auto;
+    margin-right: 16px;
+}
+
+
 
 .book-cards-container{
     max-width: 1100px;
@@ -45,10 +77,27 @@
 
     .filter-container{
         flex-direction: row;
+        min-width: 89%;
+        justify-content: space-evenly;
+        height: auto;
+        flex-wrap: wrap;
     }
 
     .wrraper-cards{
         min-width: 89%;
+    }
+    .wrraper-cards div{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .reset-filter{
+        width: 65%;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .filter-section{
+        border-bottom: none;
     }
 }  
 
@@ -57,3 +106,12 @@
         min-width: 1100px;
     }
 }
+
+
+
+.active-filter{
+    /* background-color: #10bbd5; */
+    color: #ff0072;
+    font-weight: bold;
+}
+/* class="active-filter" */

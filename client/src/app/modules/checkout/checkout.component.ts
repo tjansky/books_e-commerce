@@ -100,11 +100,20 @@ export class CheckoutComponent implements OnInit, AfterViewInit, OnDestroy {
       }).then(result => {
         console.log(result);
         if (result.paymentIntent) {
-          // payment went successfuly
-          console.log("Payment went successfuly");
+          // payment went successfuly, set order status to successful
+          this.orderApiService.setOrderStatusToSuccessful(order.id).subscribe(updatedOrder => {
+            //order status is set to successful
+            console.log("Order na successful updejtan");
+
+            // navigate to order/orders
+            // -----------------------
+          }, error => {
+            console.log(error);
+          })
+
           // delete basket
           this.basketService.deleteBasket();
-          // navigate to orders
+
         } else {
           console.log("Payment failed");
         }

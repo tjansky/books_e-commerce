@@ -70,5 +70,19 @@ namespace BookShop.Services
         {
             return await _unitOfWork.Orders.GetAllUserOrdersByEmailAsync(email);
         }
+
+        public async Task<Order> GetOrder(int id)
+        {
+            return await _unitOfWork.Orders.GetByIdAsync(id);
+        }
+
+        public async Task<Order> UpdateOrderStatus(Order orderToBeUpdated)
+        {
+            orderToBeUpdated.Status = "Successful";
+
+            await _unitOfWork.CommitAsync();
+
+            return orderToBeUpdated;
+        }
     }
 }

@@ -20,6 +20,15 @@ namespace BookShop.Data.Repositories
             return await BookShopDbContext.Orders.Include(x => x.OrderItems).Where(y => y.BuyerEmail == email).ToListAsync();
         }
 
+        // public async Task<Order> UpdateOrderAsync(Order order)
+        // {
+        //     var orderToChange = await BookShopDbContext.Orders.FirstOrDefaultAsync(x => x.Id == order.Id);
+
+
+
+        //     await BookShopDbContext.Orders
+        // }
+
         private BookShopDbContext BookShopDbContext
         {
             get { return Context as BookShopDbContext; }

@@ -10,5 +10,7 @@ namespace BookShop.Core.Services
     {
         Task<Order> CreateOrder(Order order);
         Task<List<Order>> GetAllUserOrdersByEmail(string email);
+        Task<Order> UpdateOrderStatus(Order orderToBeUpdated);
+        Task<Order> GetOrder(int id);
     }
 }

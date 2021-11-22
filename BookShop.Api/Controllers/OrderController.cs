@@ -52,5 +52,20 @@ namespace BookShop.Api.Controllers
 
             return ordersDto;
         }
+
+        [HttpPut("UpdateOrderStatus/{orderId}")]
+        public async Task<ActionResult> UpdateOrderStatus(int orderId)
+        {
+            // get order that will be updated
+            var orderToBeUpdated = await orderService.GetOrder(orderId);
+
+            // TODO - make some kind of check if payment really happened
+            // -----------------------
+
+            // change status of order to success
+            var updatedOrder = await orderService.UpdateOrderStatus(orderToBeUpdated);
+
+            return Ok(updatedOrder);
+        }
     }
 }

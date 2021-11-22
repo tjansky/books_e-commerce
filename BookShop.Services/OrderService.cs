@@ -65,5 +65,10 @@ namespace BookShop.Services
             // return order
             return orderToAdd;
         }
+
+        public async Task<List<Order>> GetAllUserOrdersByEmail(string email)
+        {
+            return await _unitOfWork.Orders.GetAllUserOrdersByEmailAsync(email);
+        }
     }
 }

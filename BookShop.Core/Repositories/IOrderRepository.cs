@@ -8,6 +8,6 @@ namespace BookShop.Core.Repositories
 {
     public interface IOrderRepository : IRepository<Order>
     {
-        
+        Task<List<Order>> GetAllUserOrdersByEmailAsync(string email);
     }
 }

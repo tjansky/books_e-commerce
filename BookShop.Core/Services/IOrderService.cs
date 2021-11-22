@@ -9,5 +9,6 @@ namespace BookShop.Core.Services
     public interface IOrderService
     {
         Task<Order> CreateOrder(Order order);
+        Task<List<Order>> GetAllUserOrdersByEmail(string email);
     }
 }

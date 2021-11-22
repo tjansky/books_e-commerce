@@ -41,5 +41,16 @@ namespace BookShop.Api.Controllers
             return orderDto;
         }
 
+        [HttpGet("GetAllUserOrders")]
+        public async Task<ActionResult<List<OrderDto>>> GetAllUserOrders() 
+        {
+            string email = "kupac1@gmail.com"; // email will be retrived from user claim
+
+            var orders = await orderService.GetAllUserOrdersByEmail(email);
+
+            var ordersDto = mapper.Map<List<Order>, List<OrderDto>>(orders);
+
+            return ordersDto;
+        }
     }
 }

@@ -8,6 +8,7 @@ const routes: Routes = [
   {path: 'basket', loadChildren: () => import('./modules/basket/basket.module').then(mod => mod.BasketModule)},
   {path: 'checkout', loadChildren: () => import('./modules/checkout/checkout.module').then(mod => mod.CheckoutModule), canActivate: [AuthGuard]},
   {path: 'wishlist', loadChildren: () => import('./modules/wishlist/wishlist.module').then(mod => mod.WishlistModule), canActivate: [AuthGuard]},
+  {path: 'orders', loadChildren: () => import('./modules/orders/orders.module').then(mod => mod.OrdersModule), canActivate: [AuthGuard]},
   {path: '**', redirectTo: 'shop', pathMatch: 'full'}
 ];
 

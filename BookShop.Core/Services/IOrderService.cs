@@ -12,5 +12,6 @@ namespace BookShop.Core.Services
         Task<List<Order>> GetAllUserOrdersByEmail(string email);
         Task<Order> UpdateOrderStatus(Order orderToBeUpdated);
         Task<Order> GetOrder(int id);
+        Task<Order> GetOrderWithOrderItemsById(int id);
     }
 }

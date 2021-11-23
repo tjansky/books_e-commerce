@@ -1,1 +1,6 @@
-<p>order-details works!</p>
+<div>
+    <h3>Order Details</h3>
+    <div *ngIf="loadedOrder">
+        <div>{{loadedOrder.id}} - {{loadedOrder.status}}</div>
+    </div>
+</div>

@@ -53,6 +53,16 @@ namespace BookShop.Api.Controllers
             return ordersDto;
         }
 
+        [HttpGet("GetOrderById/{id}")]
+        public async Task<ActionResult<OrderDto>> GetOrderById(int id)
+        {
+            var order = await orderService.GetOrderWithOrderItemsById(id);
+
+            var orderDto = mapper.Map<Order, OrderDto>(order);
+
+            return orderDto;
+        }
+
         [HttpPut("UpdateOrderStatus/{orderId}")]
         public async Task<ActionResult> UpdateOrderStatus(int orderId)
         {

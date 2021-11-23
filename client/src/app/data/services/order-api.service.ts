@@ -20,4 +20,12 @@ export class OrderApiService {
     return this.http.put(this.apiUrl + "/Order/UpdateOrderStatus/" + orderId, null);
   }
 
+  getOrderById(orderId: number) {
+    return this.http.get<Order>(this.apiUrl + '/Order/GetOrderById/' + orderId);
+  }
+
+  getAllUserOrders() {
+    return this.http.get<Order[]>(this.apiUrl + '/Order/GetAllUserOrders');
+  }
+
 }

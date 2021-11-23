@@ -1,1 +1,6 @@
-<p>orders works!</p>
+<div>
+    <h3>List of User Orders</h3>
+    <div *ngFor="let order of orders">
+        <div>{{order.id}} - {{order.status}}</div>
+    </div>
+</div>

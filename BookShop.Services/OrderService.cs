@@ -76,6 +76,11 @@ namespace BookShop.Services
             return await _unitOfWork.Orders.GetByIdAsync(id);
         }
 
+        public async Task<Order> GetOrderWithOrderItemsById(int id)
+        {
+            return await _unitOfWork.Orders.GetOrderWithOrderItemsByIdAsync(id);
+        }
+
         public async Task<Order> UpdateOrderStatus(Order orderToBeUpdated)
         {
             orderToBeUpdated.Status = "Successful";

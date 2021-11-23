@@ -10,5 +10,6 @@ namespace BookShop.Core.Repositories
     {
         Task<List<Order>> GetAllUserOrdersByEmailAsync(string email);
         // Task<Order> UpdateOrderAsync(Order order);
+        Task<Order> GetOrderWithOrderItemsByIdAsync(int id);
     }
 }

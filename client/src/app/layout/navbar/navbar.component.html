@@ -34,8 +34,8 @@
     <div><img class="nav-image" src="../../../assets/DailyDeals_NOV_1112x110.jpg" alt=""></div>
     <div class="fns-third">
         <div></div>
-        <div><i class="far fa-compass"></i> Order Status</div>
-        <div><i class="far fa-heart"></i> Wishlist</div>
+        <div routerLink="/orders"><i class="far fa-compass"></i> Order Status</div>
+        <div routerLink="/wishlist"><i class="far fa-heart"></i> Wishlist</div>
         <div *ngIf="loggedUser" (click)="onSignOut()">Sign Out</div>
         <div *ngIf="loggedUser == null" (click)="onSignIn()">Sign in/Join</div>
     </div>

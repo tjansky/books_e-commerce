@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { OrderApiService } from 'src/app/data/services/order-api.service';
 import { PaymentApiService } from 'src/app/data/services/payment-api.service';
@@ -32,7 +33,8 @@ export class CheckoutComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(private paymentApiService: PaymentApiService, 
               private basketService: BasketService,
-              private orderApiService: OrderApiService) { }
+              private orderApiService: OrderApiService,
+              private router: Router) { }
   ngOnDestroy(): void {
     this.cardNumber.destroy();
     this.cardExpiry.destroy();
@@ -104,9 +106,8 @@ export class CheckoutComponent implements OnInit, AfterViewInit, OnDestroy {
           this.orderApiService.setOrderStatusToSuccessful(order.id).subscribe(updatedOrder => {
             //order status is set to successful
             console.log("Order na successful updejtan");
-
-            // navigate to order/orders
-            // -----------------------
+            // navigate to order details
+            this.router.navigateByUrl("/orders/" + order.id);
           }, error => {
             console.log(error);
           })

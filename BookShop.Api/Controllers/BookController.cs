@@ -57,5 +57,17 @@ namespace BookShop.Api.Controllers
 
             return Ok(bookDto);
         }
+
+        [HttpGet("GetUserWishlist")]
+        public async Task<ActionResult<List<BookWithDetailsDto>>> GetWishlistOfUser()
+        {
+            var userId = 2;
+            
+            var wishListBooks = await bookService.GetUserWishlist(userId);
+
+            var wishListBooksDto = mapper.Map<List<Book>, List<BookWithDetailsDto>>(wishListBooks);
+
+            return wishListBooksDto;
+        }
     }
 }

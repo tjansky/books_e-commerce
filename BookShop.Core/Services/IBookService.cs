@@ -13,5 +13,6 @@ namespace BookShop.Core.Services
         Task<List<Book>> GetAllBooksWithDetails();
         Task<PagedList<Book>> GetAllWithDetailsPagination(PagingParameters pagingParams, SortingParameters sortingParams, string search);
         Task<Book> GetBookWithDetails(int id);
+        Task<List<Book>> GetUserWishlist(int userId);
     }
 }

@@ -17,7 +17,11 @@ namespace BookShop.Data.Repositories
 
         public async Task<User> GetByIdWithWishlistedBooksAsync(int id)
         {
-            return await BookShopDbContext.Users.Include(x => x.WishlistedBooks).FirstOrDefaultAsync(x => x.Id == id);
+            return await BookShopDbContext.Users
+                    .Include(x => x.WishlistedBooks).ThenInclude(x => x.Format)
+                    .Include(x => x.WishlistedBooks).ThenInclude(x => x.Category)
+                    .Include(x => x.WishlistedBooks).ThenInclude(x => x.Author)
+                    .FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<User> GetUserByEmailAsync(string email)

@@ -33,5 +33,14 @@ namespace BookShop.Services
         {
             return await _unitOfWork.Books.GetByIdWithDetailsAsync(id);
         }
+
+        public async Task<List<Book>> GetUserWishlist(int userId)
+        {
+            var userWithBooks = await _unitOfWork.Users.GetByIdWithWishlistedBooksAsync(userId);
+
+            List<Book> wishlistBooks = userWithBooks.WishlistedBooks.ToList();
+
+            return wishlistBooks;
+        }
     }
 }

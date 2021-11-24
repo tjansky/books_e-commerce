@@ -1,1 +1,8 @@
-<p>wishlist works!</p>
+<div>
+    <h3>Wishlist</h3>
+    <div>
+        <div *ngFor="let book of wishlistBooks">
+            <div>{{book.displayName}}</div>
+        </div>
+    </div>
+</div>

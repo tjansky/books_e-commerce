@@ -10,5 +10,7 @@ namespace BookShop.Core.Repositories
     {
         Task<User> GetByIdWithWishlistedBooksAsync(int id);
         Task<User> GetUserByEmailAsync(string email);
+        Task<User> GetUserByEmailWithWishlistAsync(string email);
+        
     }
 }

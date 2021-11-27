@@ -42,5 +42,15 @@ namespace BookShop.Services
 
             return wishlistBooks;
         }
+
+        public async Task<Book> AddBookToUserWishlist(User user, Book book)
+        {
+            user.WishlistedBooks.Add(book);
+
+            await _unitOfWork.CommitAsync();
+
+            return book;
+        }
+
     }
 }

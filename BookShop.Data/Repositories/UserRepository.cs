@@ -29,6 +29,11 @@ namespace BookShop.Data.Repositories
             return await BookShopDbContext.Users.FirstOrDefaultAsync(x => x.Email == email);
         }
 
+        public async Task<User> GetUserByEmailWithWishlistAsync(string email)
+        {
+            return await BookShopDbContext.Users.Include(y => y.WishlistedBooks).FirstOrDefaultAsync(x => x.Email == email);
+        }
+
         private BookShopDbContext BookShopDbContext
         {
             get { return Context as BookShopDbContext; }

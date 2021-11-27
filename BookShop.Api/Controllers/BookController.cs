@@ -17,11 +17,13 @@ namespace BookShop.Api.Controllers
     public class BookController : ControllerBase
     {
         private readonly IBookService bookService;
+        private readonly IUserService userService;
         private readonly IMapper mapper;
 
-        public BookController(IBookService bookService, IMapper mapper)
+        public BookController(IBookService bookService, IUserService userService, IMapper mapper)
         {
             this.bookService = bookService;
+            this.userService = userService;
             this.mapper = mapper;
         }
 
@@ -69,5 +71,25 @@ namespace BookShop.Api.Controllers
 
             return wishListBooksDto;
         }
+
+        [HttpPost("SetBookInWishlist/{id}")]
+        public async Task<ActionResult<BookWithDetailsDto>> InsertBookInWishlist(int id)
+        {
+            // get current user
+            var userEmail = "user";
+            var user = await userService.GetUserByEmailWithWishlist(userEmail);
+
+            // get book
+            var bookToBeAddedInWishlist = await bookService.GetBookWithDetails(id);
+
+            // insert book in user wishlist
+            var insertedBook = await bookService.AddBookToUserWishlist(user, bookToBeAddedInWishlist);
+
+            // map to dto
+            var insertedBookDto = mapper.Map<Book, BookWithDetailsDto>(insertedBook);
+
+            return insertedBookDto;
+        }
+
     }
 }

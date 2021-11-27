@@ -29,5 +29,10 @@ namespace BookShop.Services
         {
             return await _unitOfWork.Users.GetUserByEmailAsync(email);
         }
+
+        public async Task<User> GetUserByEmailWithWishlist(string email)
+        {
+            return await _unitOfWork.Users.GetUserByEmailWithWishlistAsync(email);
+        }
     }
 }

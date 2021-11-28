@@ -91,5 +91,18 @@ namespace BookShop.Api.Controllers
             return insertedBookDto;
         }
 
+        [HttpDelete("RemoveBookFromWishlist/{id}")]
+        public async Task<ActionResult<int>> RemoveBookFromWishlist(int id)
+        {
+            // get current user
+            var userEmail = "user";
+            var user = await userService.GetUserByEmailWithWishlist(userEmail);
+
+            // remove book from user wishlist
+            var removedBookId = await bookService.RemoveBookFromUserWishlist(user, id);
+
+            return removedBookId;
+        }
+
     }
 }

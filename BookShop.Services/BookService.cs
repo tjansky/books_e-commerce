@@ -52,5 +52,15 @@ namespace BookShop.Services
             return book;
         }
 
+        public async Task<int> RemoveBookFromUserWishlist(User user, int bookId)
+        {
+            var newBookList = user.WishlistedBooks.Where(x => x.Id != bookId).ToList();
+
+            user.WishlistedBooks = newBookList;
+
+            await _unitOfWork.CommitAsync();
+
+            return bookId;
+        }
     }
 }

@@ -15,5 +15,6 @@ namespace BookShop.Core.Services
         Task<Book> GetBookWithDetails(int id);
         Task<List<Book>> GetUserWishlist(int userId);
         Task<Book> AddBookToUserWishlist(User user, Book book);
+        Task<int> RemoveBookFromUserWishlist(User user, int bookId);
     }
 }

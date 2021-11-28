@@ -32,4 +32,13 @@ export class BookDetailsComponent implements OnInit {
     this.basketService.addItemToBasket(book);
   }
 
+  onBookAddToWishlist(bookId: number) {
+    this.bookApiService.addBookToWishlist(bookId).subscribe(res => {
+      // book was successfuly added to wishlist
+      // TODO - show modal to user
+    }, error => {
+      console.log(error);
+    });
+  }
+
 }

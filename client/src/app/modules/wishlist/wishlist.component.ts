@@ -25,4 +25,13 @@ export class WishlistComponent implements OnInit {
     });
   }
 
+  onRemoveBook(bookId: number) {
+    this.bookApiService.removeBookFromWishlist(bookId).subscribe(res => {
+      // book was removed from wishlist
+      this.loadWishlistBooks();
+    }, error => {
+      console.log();
+    });
+  }
+
 }

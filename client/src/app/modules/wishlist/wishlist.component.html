@@ -2,7 +2,7 @@
     <h3>Wishlist</h3>
     <div>
         <div *ngFor="let book of wishlistBooks">
-            <div>{{book.displayName}}</div>
+            <div>{{book.displayName}} <button (click)="onRemoveBook(book.id)" type="button">Remove</button></div>
         </div>
     </div>
 </div>

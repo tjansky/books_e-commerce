@@ -50,4 +50,12 @@ export class BookApiService {
     return this.http.get<Book[]>(this.apiUrl + '/Book/GetUserWishlist');
   }
 
+  addBookToWishlist(bookId: number): Observable<Book> {
+    return this.http.post<Book>(this.apiUrl + '/Book/SetBookInWishlist/' + bookId, null);
+  }
+
+  removeBookFromWishlist(bookId: number): Observable<number> {
+    return this.http.delete<number>(this.apiUrl + '/Book/RemoveBookFromWishlist/' + bookId);
+  }
+
 }

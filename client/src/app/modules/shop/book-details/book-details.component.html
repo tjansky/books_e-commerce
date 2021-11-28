@@ -8,7 +8,7 @@
             <div class="payment-info">
                 <div><h2>{{book.price | currency}}</h2></div>
                 <div><button type="button" (click)="addBookToBasket(book)">Add to basket</button></div>
-                <div><button>Add to wishlist</button></div>
+                <div><button (click)="onBookAddToWishlist(book.id)">Add to wishlist</button></div>
             </div>
         </div>
         <div class="book-details">

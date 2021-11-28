@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using BookShop.Api.Dtos;
@@ -26,7 +27,7 @@ namespace BookShop.Api.Controllers
         [HttpPost("CreateOrder")]
         public async Task<ActionResult<OrderDto>> CreateOrder(CreateOrderDto createOrderDto)
         {
-            string email = "kupac1@gmail.com"; // email will be retrived from user claim
+            string email = User.FindFirst(ClaimTypes.Email).Value;
 
             var orderToAdd = mapper.Map<CreateOrderDto, Order>(createOrderDto);
 
@@ -44,7 +45,7 @@ namespace BookShop.Api.Controllers
         [HttpGet("GetAllUserOrders")]
         public async Task<ActionResult<List<OrderDto>>> GetAllUserOrders() 
         {
-            string email = "kupac1@gmail.com"; // email will be retrived from user claim
+            string email = User.FindFirst(ClaimTypes.Email).Value;
 
             var orders = await orderService.GetAllUserOrdersByEmail(email);
 

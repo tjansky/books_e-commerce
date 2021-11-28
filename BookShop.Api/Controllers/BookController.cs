@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using BookShop.Api.Dtos;
@@ -8,12 +9,14 @@ using BookShop.Core.Models;
 using BookShop.Core.Paging;
 using BookShop.Core.Services;
 using BookShop.Core.Sorting;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookShop.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class BookController : ControllerBase
     {
         private readonly IBookService bookService;
@@ -63,9 +66,9 @@ namespace BookShop.Api.Controllers
         [HttpGet("GetUserWishlist")]
         public async Task<ActionResult<List<BookWithDetailsDto>>> GetWishlistOfUser()
         {
-            var userId = 2;
-            
-            var wishListBooks = await bookService.GetUserWishlist(userId);
+            var userEmail = User.FindFirst(ClaimTypes.Email).Value;
+
+            var wishListBooks = await bookService.GetUserWishlistByEmail(userEmail);
 
             var wishListBooksDto = mapper.Map<List<Book>, List<BookWithDetailsDto>>(wishListBooks);
 
@@ -76,7 +79,7 @@ namespace BookShop.Api.Controllers
         public async Task<ActionResult<BookWithDetailsDto>> InsertBookInWishlist(int id)
         {
             // get current user
-            var userEmail = "user";
+            var userEmail = User.FindFirst(ClaimTypes.Email).Value;
             var user = await userService.GetUserByEmailWithWishlist(userEmail);
 
             // get book
@@ -95,7 +98,7 @@ namespace BookShop.Api.Controllers
         public async Task<ActionResult<int>> RemoveBookFromWishlist(int id)
         {
             // get current user
-            var userEmail = "user";
+            var userEmail = User.FindFirst(ClaimTypes.Email).Value;
             var user = await userService.GetUserByEmailWithWishlist(userEmail);
 
             // remove book from user wishlist

@@ -43,6 +43,15 @@ namespace BookShop.Services
             return wishlistBooks;
         }
 
+        public async Task<List<Book>> GetUserWishlistByEmail(string email)
+        {
+            var userWithBooks = await _unitOfWork.Users.GetUserByEmailWithWishlistAsync(email);
+
+            List<Book> wishlistBooks = userWithBooks.WishlistedBooks.ToList();
+
+            return wishlistBooks;
+        }
+
         public async Task<Book> AddBookToUserWishlist(User user, Book book)
         {
             user.WishlistedBooks.Add(book);

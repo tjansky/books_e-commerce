@@ -23,7 +23,8 @@ namespace BookShop.Services
         {
             var claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.NameId, user.FirstName)
+                new Claim(JwtRegisteredClaimNames.NameId, user.FirstName),
+                new Claim(JwtRegisteredClaimNames.Email, user.Email)
             };
 
             var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);

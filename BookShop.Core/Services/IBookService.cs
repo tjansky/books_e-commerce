@@ -14,6 +14,7 @@ namespace BookShop.Core.Services
         Task<PagedList<Book>> GetAllWithDetailsPagination(PagingParameters pagingParams, SortingParameters sortingParams, string search);
         Task<Book> GetBookWithDetails(int id);
         Task<List<Book>> GetUserWishlist(int userId);
+        Task<List<Book>> GetUserWishlistByEmail(string email);
         Task<Book> AddBookToUserWishlist(User user, Book book);
         Task<int> RemoveBookFromUserWishlist(User user, int bookId);
     }

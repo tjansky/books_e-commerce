@@ -1,24 +1,10 @@
 <div>
-    <div>
-        <div>
-            <h3>Sign-In</h3>
-        </div>
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <div>
-                <label>Email</label>
-                <input type="text" formControlName="email">
-            </div>
-            <div>
-                <label>Password</label>
-                <input type="password" formControlName="password">
-            </div>
-            <div>
-                <button>Login</button>
-            </div>
-        </form>
+
+    <div class="login">
+        <app-login></app-login>
     </div>
 
-    <div>
-        <h3>Join</h3>
+    <div class="register">
+        <app-register></app-register>
     </div>
 </div>

@@ -16,7 +16,7 @@ namespace BookShop.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    [Authorize]
+    // [Authorize]
     public class BookController : ControllerBase
     {
         private readonly IBookService bookService;
@@ -63,6 +63,7 @@ namespace BookShop.Api.Controllers
             return Ok(bookDto);
         }
 
+        [Authorize]
         [HttpGet("GetUserWishlist")]
         public async Task<ActionResult<List<BookWithDetailsDto>>> GetWishlistOfUser()
         {
@@ -75,6 +76,7 @@ namespace BookShop.Api.Controllers
             return wishListBooksDto;
         }
 
+        [Authorize]
         [HttpPost("SetBookInWishlist/{id}")]
         public async Task<ActionResult<BookWithDetailsDto>> InsertBookInWishlist(int id)
         {
@@ -94,6 +96,7 @@ namespace BookShop.Api.Controllers
             return insertedBookDto;
         }
 
+        [Authorize]
         [HttpDelete("RemoveBookFromWishlist/{id}")]
         public async Task<ActionResult<int>> RemoveBookFromWishlist(int id)
         {

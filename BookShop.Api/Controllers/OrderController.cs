@@ -7,6 +7,7 @@ using AutoMapper;
 using BookShop.Api.Dtos;
 using BookShop.Core.Models;
 using BookShop.Core.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookShop.Api.Controllers
@@ -24,6 +25,7 @@ namespace BookShop.Api.Controllers
             this.mapper = mapper;
         }
 
+        [Authorize]
         [HttpPost("CreateOrder")]
         public async Task<ActionResult<OrderDto>> CreateOrder(CreateOrderDto createOrderDto)
         {
@@ -42,6 +44,7 @@ namespace BookShop.Api.Controllers
             return orderDto;
         }
 
+        [Authorize]
         [HttpGet("GetAllUserOrders")]
         public async Task<ActionResult<List<OrderDto>>> GetAllUserOrders() 
         {
@@ -54,6 +57,7 @@ namespace BookShop.Api.Controllers
             return ordersDto;
         }
 
+        [Authorize]
         [HttpGet("GetOrderById/{id}")]
         public async Task<ActionResult<OrderDto>> GetOrderById(int id)
         {
@@ -64,6 +68,7 @@ namespace BookShop.Api.Controllers
             return orderDto;
         }
 
+        [Authorize]
         [HttpPut("UpdateOrderStatus/{orderId}")]
         public async Task<ActionResult> UpdateOrderStatus(int orderId)
         {

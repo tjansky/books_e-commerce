@@ -1,4 +1,4 @@
-.book-details-container{
+/* .book-details-container{
     display: flex;
     flex-direction: column;
 }
@@ -20,4 +20,49 @@
     background-color: cornflowerblue;
     min-height: 500px;
     min-width: 300px;
+} */
+
+.book-details-container{
+    display: flex;
+    flex-direction: column;
+    max-width: 1500px;
+    gap: 15px;
+}
+
+.card-container{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.f-card-container{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    background-color: white;
+    width: 75%;
+}
+
+.s-card-container{
+    background-color: white;
+    width: 25%;
+}
+
+.xd{
+    display: flex;
+    justify-content: center;
+}
+
+.product-deatils-container{
+    background-color: white;
+}
+
+.author-details-container{
+    background-color: white;
+}
+
+.p-d-column-container{
+    display: flex;
+    /* maybe remove this on mobile screen */
+    gap: 20px;
 }

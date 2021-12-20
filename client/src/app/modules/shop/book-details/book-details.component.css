@@ -27,6 +27,7 @@
     flex-direction: column;
     max-width: 1500px;
     gap: 15px;
+    margin: 40px;
 }
 
 .card-container{
@@ -65,4 +66,175 @@
     display: flex;
     /* maybe remove this on mobile screen */
     gap: 20px;
+    flex-wrap: wrap;
 }
+
+.has-padding{
+    padding: 12px;
+}
+
+.is-price{
+    color: #ff0072;
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.scc-div{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    font-size: 17px;
+    align-items: center;
+}
+
+i{
+    margin-right: 9px;
+}
+
+.scc-btns{
+    width: 85%;
+    height: 40px;
+    border-radius: 0.5rem;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.scc-btns-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 18px;
+    margin-bottom: 6px;
+}
+
+hr{
+    color: rgb(233, 233, 233);
+}
+
+.basket-btn{
+    background-color: #10bbd5;
+    color: white;
+    font-weight: 600;
+}
+
+.basket-btn:hover{
+    background-color: #29d5ef;
+}
+
+.wishlist-btn{
+
+}
+
+.wishlist-btn:hover{
+    background-color: #cecece;
+}
+
+.main-card-right{
+    margin-right: 17px;
+    margin-left: 16px;
+}
+
+.description-section{
+    margin-top: 26px;
+    line-height: 1.4;
+}
+
+.main-details{
+    margin-bottom: 4px;
+    font-size: 16.5px;
+    
+}
+
+.second-headings{
+    font-size: 19px;
+    font-weight: 600;
+    border-bottom: 0.1rem solid #f0f0f0;
+    margin-bottom: 12px;
+    height: 32px;
+}
+
+.book-icons-container{
+    margin-top: 19px;
+    display: flex;
+    gap: 14px;
+}
+
+.book-icons-container div{
+    width: 33px;
+    height: 33px;
+    border-radius: 100%;
+    background-color: rgb(211, 211, 211);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.book-icons-container div i{
+    margin: 0;
+}
+
+.first-par-details{
+    min-width: 440px;
+}
+
+.first-par-details div{
+    margin-bottom: 14px;
+}
+
+.second-par-details{
+    min-width: 440px;
+}
+
+
+.second-par-details div{
+    margin-bottom: 14px;
+}
+
+.details-headings{
+    font-weight: 600;
+    margin-right: 3px;
+}
+
+.img-div{
+    margin-left: 40px;
+    margin-right: 35px;
+    width: 190px;
+}
+
+.img-div img{
+    width: 100%;
+}
+
+.author-description{
+    line-height: 1.4;
+}
+
+
+@media screen and (max-width: 1050px) {
+    .card-container{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .f-card-container{
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .s-card-container{
+        width: 100%;
+    }
+
+    .first-par-details{
+        min-width: 100%;
+    }
+
+    .second-par-details{
+        min-width: 100%;
+    }
+  }

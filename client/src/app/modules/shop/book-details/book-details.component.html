@@ -22,61 +22,74 @@
 <div class="xd">
 
 
-<div class="book-details-container">
+<div *ngIf="book" class="book-details-container">
 
     <div class="card-container">
-        <div class="f-card-container">
-            <div>
-                <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/6482/9781648279171.jpg" alt="">
+        <div class="f-card-container has-padding">
+            <div class="img-div">
+                <img src="{{book.image}}" alt="">
             </div>
-            <div>
-                <div>The sapiens brief history of humankind</div>
-                <div>Paperback | kuca nesto | English</div>
-                <div>By (author) T. Jansky</div>
-                <div>
-                    Born the crown prince of a prosperous kingdom, Xie Lian was renowned for his beauty, strength, and purity. His years of dedication and noble deeds allowed him to ascend to godhood. But those who rise, can also fall...and fall he does, cast from the Heavens again and again and banished to the mortal realm.
+            <div class="main-card-right">
+                <div><h2>{{book.displayName}}</h2></div>
+                <div class="main-details">{{book.format.displayName}}  |  {{book.language}}</div>
+                <div class="main-details">By (author) {{book.author.displayName}} - {{book.author.firstName}} {{book.author.lastName}}</div>
+                <div class="book-icons-container">
+                    <div><i class="fas fa-book-open"></i></div>
+                    <div><i class="fas fa-book"></i></div>
+                    <div><i class="fas fa-volume-down"></i></div>
+                    <div><i class="fas fa-undo-alt"></i></div>
+                </div>
+                <div class="description-section">
+                    {{book.description}}
                 </div>
             </div>
         </div>
 
-        <div class="s-card-container">
-            <div>$ 19,16</div>
+        <div class="s-card-container has-padding">
+            <div class="is-price">{{book.price | currency}}</div>
             <hr>
-            <div>Free Delivery wordlwide</div>
-            <div>Price includes VAT/import taxes for EU delivery</div>
+            <div class="scc-div">
+                <i class="far fa-lg fa-paper-plane"></i> 
+                <b>Free delivery worldwide</b> 
+            </div>
+            <div class="scc-div">
+                <i class="far fa-lg fa-check-circle"></i> 
+                <b>Price includes VAT/import taxes for EU delivery</b> 
+            </div>
+            <div class="scc-div">
+                <i class="far fa-lg fa-times-circle"></i> 
+                <b>Not expected to be delivered since it is demo app shop</b> 
+            </div>
             <hr>
-            <div>
-                <button type="button">Add to basket</button>
+            <div class="scc-btns-container">
+                    <button class="scc-btns basket-btn" type="button" (click)="addBookToBasket(book)">Add to basket</button>
+                    <button class="scc-btns wishlist-btn" type="button" (click)="onBookAddToWishlist(book.id)">Add to wishlist</button>
             </div>
-            <div>
-                <button type="button">Add to wishlist</button>
-            </div>
+            
         </div>
     </div>
 
-    <div class="product-deatils-container">
-        <div>Product details</div>
-        <hr>
+    <div class="product-deatils-container has-padding">
+        <div class="second-headings">Product details</div>
         <div class="p-d-column-container">
-            <div>
-                <div>Format: Paperback</div>
-                <div>Publication date 14 Dec 2021</div>
-                <div>Publisher Seven Seas Entertainment, LLC</div>
-                <div>Publication City/Country West Hollywood, United States</div>
+            <div class="first-par-details">
+                <div><span class="details-headings">Format:</span> {{book.format.displayName}}</div>
+                <div><span class="details-headings">Publication date:</span> 14 Dec 2021</div>
+                <div><span class="details-headings">Publisher:</span> {{book.publisher}}</div>
+                <div><span class="details-headings">Publication City/Country:</span> {{book.publicationCity}}</div>
             </div>
-            <div>
-                <div>Language English</div>
-                <div>Category: Filozofija</div>
-                <div>Author: T. Janksy</div>
+            <div class="second-par-details">
+                <div><span class="details-headings">Language:</span> {{book.language}}</div>
+                <div><span class="details-headings">Category:</span> {{book.category.displayName}}</div>
+                <div><span class="details-headings">Author:</span> {{book.author.displayName}}</div>
             </div>
         </div>
     </div>
 
-    <div class="author-details-container">
-        <div>About T. Jansky</div>
-        <hr>
-        <div>
-            Mo Xiang Tong Xiu, also known as MXTX, is an author from China whose three novel series Grandmaster of Demonic Cultivation, Heaven Official's Blessing, and The Scum Villain's Self-Saving System have all been turned into multimedia franchises, driving the huge popularity of the danmei genre throughout China and the world. All three series are available in English from Seven Seas.
+    <div class="author-details-container has-padding">
+        <div class="second-headings">About {{book.author.displayName}}</div>
+        <div class="author-description">
+            {{book.author.description}}
         </div>
     </div>
 

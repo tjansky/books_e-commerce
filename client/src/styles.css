@@ -4,3 +4,38 @@ body{
     padding: 0px;
     background-color: #ededef;
 }
+
+.blue-btn{
+    background-color: #10bbd5;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.4rem;
+}
+
+.empty-btn{
+    background-color: #fff;
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 0.2rem;
+    cursor: pointer;
+}
+
+.empty-btn:hover{
+    background-color: rgb(240, 240, 240);
+}
+
+.blue-btn:hover{
+    background-color: #29d5ef;
+}
+
+
+.start-container{
+    margin-bottom: 3px;
+}
+
+
+.star{
+    font-size: 13px;
+    color: gold;
+}

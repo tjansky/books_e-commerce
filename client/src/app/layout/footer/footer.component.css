@@ -1,6 +1,18 @@
-.footer{
+:host{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     background-color: #403042;
-    color: #fff;
+}
+
+.footer{
+    max-width: 1300px;
+    width: 100%;
+    background-color: #403042;
+
+    margin-left: 22px;
+    margin-right: 22px;
+
     display: flex;
     gap: 40px;
     justify-content: center;
@@ -23,6 +35,7 @@
     border-bottom: 1.2px solid rgba(255,255,255,0.1);
     padding: 1rem 0.5rem;
     width: 200px;
+    color: #fff;
 }
 
 .link-container div:hover{
@@ -40,4 +53,5 @@
     flex-direction: column;
     gap: 20px;
     min-width: 200px;
+    color: #fff;
 }

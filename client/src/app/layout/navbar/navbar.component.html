@@ -1,71 +1,64 @@
-<!-- <div class="navbar">
-    <div class="first-part">
-        <div routerLink="/shop">Home logo</div>
-        <div *ngIf="loggedUser">Hello {{loggedUser.firstName}}</div>
-        <div>Order Status</div>
-        <div>Wishlist</div>
-        
-        <div routerLink="/basket">Go To Basket</div>
-
-        <div *ngIf="loggedUser" (click)="onSignOut()">Sign out</div>
-        <div *ngIf="loggedUser == null" (click)="onSignIn()">Sign in/Join</div>
-    </div>
-    <div class="second-part">
-        <div routerLink="/shop">
-            Logo veliki
+<!-- nav part 1 -->
+<div class="container-nav-1">
+    <div class="nav">
+        <div class="nav-first">
+            <i class="fas fa-lg fa-times hamburger-close"></i>
+            <div class="nav-first-1">
+                <div><i class="nav-icon fas fa-home"></i> Homepage</div>
+                <div><i class="nav-icon far fa-envelope"></i> Contact us</div>
+            </div>
+            <div class="nav-first-2">
+                <img src="./../Navbar_sredina.JPG" alt="">
+            </div>
+            <div class="nav-first-3">
+                <div><i class="nav-icon far fa-compass"></i> Order Status</div>
+                <div><i class="nav-icon far fa-heart"></i> Wishlist</div>
+                <div>Sign Out</div>
+            </div>
         </div>
-        <div>
-            <input #search (keyup.enter)="onSearchClick()" type="text" placeholder="Search for books by title or author">
-            <button (click)="onSearchClick()">Search</button>
-        </div>
-        <div>
-
-        </div>
-    </div>
-</div> -->
-
-
-<div class="first-navbar-section">
-    <div class="fns-first">
-        <div routerLink="/shop"><i class="fas fa-home"></i> Homepage</div>
-        <div><i class="far fa-envelope"></i> Contact us</div>
-        <!-- <div><i class="far fa-question-circle"></i> Help</div>  -->
-    </div>
-    <div><img class="nav-image" src="../../../assets/DailyDeals_NOV_1112x110.jpg" alt=""></div>
-    <div class="fns-third">
-        <div></div>
-        <div routerLink="/orders"><i class="far fa-compass"></i> Order Status</div>
-        <div routerLink="/wishlist"><i class="far fa-heart"></i> Wishlist</div>
-        <div *ngIf="loggedUser" (click)="onSignOut()">Sign Out</div>
-        <div *ngIf="loggedUser == null" (click)="onSignIn()">Sign in/Join</div>
     </div>
 </div>
+    <!-- end nav part 1 -->
 
 
-<div class="second-navbar-section">
-    <div class="hamburger"><i class="fas fa-bars fa-2x"></i></div>
-    <div routerLink="/shop" class="navbar-main-logo">
-        <i style="color: #00bdd7;" class="fas fa-book fa-3x"></i>
-        <div>
-            <div>Demo</div>
-            <div>Bookshop</div>
+    <!-- nav part 2 -->
+<div class="container-nav-2">
+    <div class="nav">
+        <div class="nav-second">
+
+            <i class="hamburger fas fa-bars fa-lg"></i>
+
+            <div class="nav-second-1">
+                <i style="color: #00bdd7;" class="fas fa-book fa-3x"></i>
+                <div>
+                    <div>Demo</div>
+                    <div>Bookshop</div>
+                </div>
+            </div>
+
+            <div class="nav-second-2">
+                <input class="search-book-input" type="text" placeholder="Search book by title or author">
+                <button class="blue-btn search-btn">Search</button>
+                <button class="blue-btn search-btn-icon"><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="nav-second-3">
+                <div class="basket-part-first">$0,00</div>
+                <div class="basket-divider">|</div>
+                <div class="basket-part-second">
+                    <div>0</div>
+                    <i class="fas fa-shopping-basket basket-icon"></i>
+                </div>
+            </div>
+            
+            <div class="basket-anchor">
+                <div class="nav-second-3-mobile">
+                    <div class="number-items">2</div>
+                    <i class="fas fa-shopping-basket fa-lg basket-mobile-icon"></i>
+                </div>
+            </div>
+            
         </div>
-    </div>
-    <div class="sns-second">
-        <!-- Search.. -->
-        <div class="navbar-search-conatiner">
-            <!-- <i class="fas fa-search"></i> -->
-            <input #search (keyup.enter)="onSearchClick()" placeholder="Search for books by title or author" type="text">
-        </div>
-        <div>
-            <button (click)="onSearchClick()" class="button-search">
-                <span class="search-string">Search</span>
-                <span class="search-icon"><i class="fas fa-search"></i></span>
-            </button>
-        </div>
-    </div>
-    <div routerLink="/basket" class="basket-container">
-        <div>{{(basket$ | async)?.items?.length ? (basket$ | async)?.items?.length : 0}}</div>
-        <i class="fas fa-shopping-basket fa-lg"></i>
     </div>
 </div>
+    <!-- end nav part 2 -->

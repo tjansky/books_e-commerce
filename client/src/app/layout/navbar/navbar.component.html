@@ -4,16 +4,17 @@
         <div class="nav-first">
             <i class="fas fa-lg fa-times hamburger-close"></i>
             <div class="nav-first-1">
-                <div><i class="nav-icon fas fa-home"></i> Homepage</div>
+                <div routerLink="/shop"><i class="nav-icon fas fa-home"></i> Homepage</div>
                 <div><i class="nav-icon far fa-envelope"></i> Contact us</div>
             </div>
             <div class="nav-first-2">
                 <img src="./../Navbar_sredina.JPG" alt="">
             </div>
             <div class="nav-first-3">
-                <div><i class="nav-icon far fa-compass"></i> Order Status</div>
-                <div><i class="nav-icon far fa-heart"></i> Wishlist</div>
-                <div>Sign Out</div>
+                <div routerLink="/orders"><i class="nav-icon far fa-compass"></i> Order Status</div>
+                <div routerLink="/wishlist"><i class="nav-icon far fa-heart"></i> Wishlist</div>
+                <div *ngIf="loggedUser" (click)="onSignOut()">Sign Out</div>
+                <div *ngIf="loggedUser == null" (click)="onSignIn()">Sign in/Join</div>
             </div>
         </div>
     </div>
@@ -37,23 +38,23 @@
             </div>
 
             <div class="nav-second-2">
-                <input class="search-book-input" type="text" placeholder="Search book by title or author">
-                <button class="blue-btn search-btn">Search</button>
-                <button class="blue-btn search-btn-icon"><i class="fas fa-search"></i></button>
+                <input #search (keyup.enter)="onSearchClick()" class="search-book-input" type="text" placeholder="Search book by title or author">
+                <button (click)="onSearchClick()" class="blue-btn search-btn">Search</button>
+                <button (click)="onSearchClick()" class="blue-btn search-btn-icon"><i class="fas fa-search"></i></button>
             </div>
 
             <div class="nav-second-3">
                 <div class="basket-part-first">$0,00</div>
                 <div class="basket-divider">|</div>
                 <div class="basket-part-second">
-                    <div>0</div>
+                    <div>{{(basket$ | async)?.items?.length ? (basket$ | async)?.items?.length : 0}}</div>
                     <i class="fas fa-shopping-basket basket-icon"></i>
                 </div>
             </div>
             
             <div class="basket-anchor">
                 <div class="nav-second-3-mobile">
-                    <div class="number-items">2</div>
+                    <div class="number-items">{{(basket$ | async)?.items?.length ? (basket$ | async)?.items?.length : 0}}</div>
                     <i class="fas fa-shopping-basket fa-lg basket-mobile-icon"></i>
                 </div>
             </div>
@@ -62,3 +63,4 @@
     </div>
 </div>
     <!-- end nav part 2 -->
+

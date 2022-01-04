@@ -1,0 +1,161 @@
+.order-info-head{
+    font-family: Roboto, sans-serif;
+}
+
+.history-orders{
+    font-size: 26px;
+    font-family: Roboto, sans-serif;
+    margin-bottom: 6px;
+}
+
+.show-info{
+    font-family: Roboto, sans-serif;
+    font-size: 14.6px;
+    font-weight: lighter;
+    margin-left: 0.5px;
+    color: rgb(75, 75, 75);
+}
+
+.orders-main{
+    background-color: #fff;
+    padding: 12px;
+    min-height: 450px;
+}
+
+.orders-container-first{
+    border-right: 1.2px solid #e4e4e4;
+    border-bottom: 1.2px solid #e4e4e4;
+    padding-bottom: 10px;
+}
+
+.order-heading{
+    background-color: #f0f0f0;
+    padding: 10px;
+    min-height: 115px;
+    margin-left: 10px;
+}
+
+.order-card{
+    padding-top: 12px;
+    margin-right: 10px;
+    border-bottom: 2.5px solid #131313;
+}
+
+.order-title{
+    font-size: 18px;
+    font-family: Roboto, sans-serif;
+    font-weight: 600;
+    margin-bottom: 17px;
+    margin-top: 10px;
+}
+
+.order-heading-details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 150px;
+    gap: 15px;
+}
+
+.order-status-text{
+    color: #48d281;
+    font-size: 17px;
+}
+
+.order-cards-container{
+    border-right: 1.2px solid #e4e4e4;
+    border-bottom: 1.2px solid #e4e4e4;
+    padding-bottom: 18px;
+}
+
+.order-body{
+    padding: 10px;
+}
+
+.product-card{
+    border-bottom: 1px solid #e4e4e4;
+    margin-top: 16px;
+}
+
+.product-top{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    margin-top: 6px;
+    align-items: center;
+}
+
+.product-top-left{
+    display: flex;
+    flex-direction: row;
+    gap: 22px;
+}
+
+.product-title{
+    font-size: 18px;
+    font-family: Roboto, sans-serif;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.product-bot{
+    text-align: end;
+    margin-top: 22px;
+}
+
+.product-detail{
+    font-family: Roboto, sans-serif;
+    margin-top: 4px;
+    font-size: 15px;
+}
+
+.product-price{
+    margin-top: 10px;
+    font-size: 18px;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    color: #ff0072;
+}
+
+.product-status{
+    font-size: 17px;
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    color: #48d281;
+    margin-right: 25px;
+}
+
+.product-bot-first{
+    display: flex;
+    gap: 60px;
+    justify-content: end;
+    margin-bottom: 23px;
+    font-family: Roboto, sans-serif;
+}
+
+.product-bot-second{
+    display: flex;
+    gap: 100px;
+    justify-content: end;
+
+    font-size: 16px;
+    font-family: Roboto, sans-serif;
+    font-weight: 600;
+    color: #ff0072;
+    margin-bottom: 12px;
+}
+
+@media (max-width: 1000px){
+    .order-heading-details{
+        margin-right: 0;
+        flex-wrap: wrap;
+    }
+
+}
+
+@media (max-width: 630px){
+    .product-top{
+        flex-direction: column;
+        gap: 30px;
+    }
+}

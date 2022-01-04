@@ -1,18 +1,18 @@
-<div class="login">
+<form class="login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="login-register-heading">Sign-In</div>
     <div>
         <div class="register-info">Register new user?</div>
         <div>
-            <input class="login-register-input" type="text" placeholder="Your email address">
-            <input class="login-register-input" type="password" placeholder="Demo Book password">
+            <input class="login-register-input" formControlName="email" type="text" placeholder="Your email address">
+            <input class="login-register-input" formControlName="password" type="password" placeholder="Demo Book password">
         </div>
     </div>
     <div>
-        <button class="blue-btn action-btn">Log in</button>
+        <button type="submit" class="blue-btn action-btn">Log in</button>
         <div class="skip-container">
             <div class="skip-registration-info">Skip user registration.</div>
-            <button class="login-as-btn action-btn">Log in as <span>Test_User</span></button>
+            <button (click)="onLogAsTest()" type="button" class="login-as-btn action-btn">Log in as <span>Test_User</span></button>
         </div>
         
     </div>
-</div>
+</form>

@@ -52,4 +52,18 @@ export class LoginComponent implements OnInit {
         });
   }
 
+  onLogAsTest() {
+    console.log("logging as test user");
+
+    this.authenticationService.login("user", "user")
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.router.navigate([this.returnUrl]);
+        },
+        error => {
+          this.error = error;
+        });
+  }
+
 }

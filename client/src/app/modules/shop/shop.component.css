@@ -1,117 +1,193 @@
-.shop-container{
+:host{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 25px;
+    
+    min-height: 450px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-.filter-container{
-    min-width: 150px;
-    height: 430px;
-    background-color: white;
-    min-width: 230px;
+.filters-section{
+    width: 20%;
+    margin-right: 11px;
+    height: fit-content;
+
     display: flex;
     flex-direction: column;
-    margin-top: 18px;
-    margin-left: 25px;
-    border: 3px solid #ddd;
 }
 
-.filter-section{
-    margin: 15px;
-    border-bottom: 1px solid #ddd;
+.books-section{
+    background-color: #fff;
+    width: 80%;
+    padding: 13px;
 }
 
-.filter-section div{
-    margin: 4px;
-}
-
-
-.filter-section div div{
-    cursor: pointer;
-    font-weight: 500;
-    margin-bottom: 6px;
+.filter-section-part{
+    background-color: #fff;
+    margin-bottom: 11px;
+    padding: 12px;
 }
 
 .filter-title{
-    font-size: 21px;
-    font-weight:600;
-    color: rgb(68, 66, 66);
-    /* border-bottom: 1px solid #ddd; */
-}
-
-.reset-filter{
-    width: 50%;
-    margin-left: auto;
-    margin-right: 16px;
-}
-
-
-
-.book-cards-container{
-    max-width: 1100px;
-    min-height: 400px;
-    background-color: white;
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    margin: 15px;
-}
-
-.wrraper-cards{
-    max-width: 1100px;
-    min-width: 70%;
-    background-color: white;
-    margin-top: 18px;
-    margin-bottom: 18px;
-    margin-right: 25px;
-    margin-left: 25px;
-}
-
-
-@media (max-width: 1000px) {
-    .shop-container{
-        flex-wrap: wrap;
-    }
-
-    .filter-container{
-        flex-direction: row;
-        min-width: 89%;
-        justify-content: space-evenly;
-        height: auto;
-        flex-wrap: wrap;
-    }
-
-    .wrraper-cards{
-        min-width: 89%;
-    }
-    .wrraper-cards div{
-        margin-left: 0;
-        margin-right: 0;
-    }
-    .reset-filter{
-        width: 65%;
-        margin-left: 0;
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-    .filter-section{
-        border-bottom: none;
-    }
-}  
-
-@media (min-width: 1580px) {
-    .wrraper-cards{
-        min-width: 1100px;
-    }
-}
-
-
-
-.active-filter{
-    /* background-color: #10bbd5; */
-    color: #ff0072;
     font-weight: bold;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 0.7rem;
+    font-size: 1.1rem;
+    font-family: Roboto, sans-serif;
 }
-/* class="active-filter" */
+
+
+
+.filter-item{
+    /* padding-left: 2px;
+    padding-right: 2px; */
+    border-bottom: 1px solid #f0f0f0;
+    padding: 5px;
+    font-family: Roboto, sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.filter-item:hover{
+    background-color: #f0f0f0;
+}
+
+.active-filter-item{
+    color: #fff !important;
+    background-color: #10bbd5 !important;
+}
+
+.book-card{
+    max-width: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 13px;
+}
+
+.book-card img{
+    /* width: 92px;
+    height: 139px; */
+    width: 130px;
+    cursor: pointer;
+}
+
+.book-title{
+    margin-top: 4px;
+    font-size: 15.5px;
+    min-height: 40px;
+    width: 100%;
+}
+
+.book-title:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.book-price{
+    color: #ff0072;
+    font-size: 18px;
+}
+
+.add-basket-btn{
+    margin-top: 7px;
+    height: 28px;
+    width: 95%;
+}
+
+.book-cards-holder{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 26px;
+}
+
+.reset-filter-btn{
+    height: 30px;
+    font-size: 15px;
+}
+
+.pagination-bottom{
+    border-top: 1px solid #f0f0f0;
+    padding-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* padding-left: 5px; */
+    text-align: center;
+}
+
+.pag-icon{
+    font-weight: 300;
+    font-size: 12.5px;
+}
+
+.pag-box{
+    border: 1px solid #ddd;
+    padding-top: 4px;
+    padding-right: 9px;
+    padding-bottom: 4px;
+    padding-left: 9px;
+    margin-left: -5px;
+    font-size: 17.5px;
+    color: rgb(63, 63, 63);
+    cursor: pointer;
+}
+
+.pag-box:hover{
+    background-color: #f0f0f0;
+}
+
+.active-box{
+    color: #fff !important;
+    background-color: #10bbd5 !important;
+}
+
+
+/* na 940px pocni mijenjat sve */
+@media (max-width: 940px) {
+    :host{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .books-section{
+        width: 100%;
+    }
+
+    .filters-section{
+        flex-direction: row;
+        width: 100%;
+        margin-right: 0px;
+        flex-wrap: wrap;
+        gap: 11px;
+        justify-content: center;
+        
+    }
+
+    .filter-section-part{
+        width: 28%;
+    }
+
+    .reset-filter-btn{
+        width: 45%;
+        margin-top: -6px;
+        margin-bottom: 16px;
+    }
+}
+
+
+@media (max-width: 650px) {
+    .filters-section{
+        flex-direction: column;
+        align-items: center;
+        margin-right: 23px;
+    }
+
+    .filter-section-part{
+        width: 100%;
+    }
+
+    .book-cards-holder{
+        justify-content: center;
+    }
+}

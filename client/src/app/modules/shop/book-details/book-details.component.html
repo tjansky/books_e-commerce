@@ -78,9 +78,9 @@
 
 <div class="first-row">
     <div class="main-book-details-container">
-        <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4071/9781407134611.jpg" alt="">
+        <img src="{{book.image}}" alt="">
         <div class="main-book-right">
-            <div class="book-title">The Raven Knjiha By Bliss</div>
+            <div class="book-title">{{book.displayName}}</div>
             <div class="start-container">
                 <i class="star fas fa-star"></i>
                 <i class="star fas fa-star"></i>
@@ -88,16 +88,16 @@
                 <i class="star fas fa-star-half-alt"></i>
                 <i class="star far fa-star"></i>
             </div>
-            <div>Paperback | English</div>
-            <div>By (author) Tomislav Jansky</div>
+            <div>{{book.format.displayName}}  |  {{book.language}}</div>
+            <div>By (author) {{book.author.firstName}} {{book.author.lastName}}</div>
             <div class="book-description-div">
-                Lorem ipsum random tekst je ovjde. Lorem ipsum random tekst je ovjde. Lorem ipsum random tekst je ovjde. Lorem ipsum random tekst je ovjde. Lorem ipsum random tekst je ovjde. Lorem ipsum random tekst je ovjde. Lorem ipsum random tekst je ovjde. Lorem ipsum random tekst je ovjde. Lorem ipsum random tekst je ovjde. Lorem ipsum random tekst je ovjde. Lorem ipsum random tekst je ovjde. Lorem ipsum random tekst je ovjde. Lorem ipsum random tekst je ovjde. Lorem ipsum random tekst je ovjde. Lorem ipsum random tekst je ovjde. Lorem ipsum random tekst je ovjde. Lorem ipsum random tekst je ovjde. Lorem ipsum random tekst je ovjde.  
+                {{book.description}}
             </div>
         </div>
     </div>
 
     <div class="price-delivery-info-container">
-        <div class="price">$10,25</div>
+        <div class="price">{{book.price | currency}}</div>
 
         <div class="price-info-cont">
             <div class="icon-desc-container">
@@ -114,8 +114,8 @@
             </div>
         </div>
         <div class="price-btn-container">
-            <button class="price-btn blue-btn">Add to basket</button>
-            <button class="price-btn empty-btn">Add to wishlist</button> 
+            <button (click)="addBookToBasket(book)" type="button" class="price-btn blue-btn">Add to basket</button>
+            <button (click)="onBookAddToWishlist(book.id)" type="button" class="price-btn empty-btn">Add to wishlist</button> 
         </div>
     </div>
 </div>
@@ -124,22 +124,22 @@
     <div class="info-heading">Product details</div>
     <div class="info-columns-holders">
         <div class="info-column">
-            <div><b>Author: </b> Tomislav Jansky</div>
-            <div><b>Format: </b> Paperback</div>
+            <div><b>Author: </b> {{book.author.firstName}} {{book.author.lastName}}</div>
+            <div><b>Format: </b> {{book.format.displayName}}</div>
             <div><b>Publication date: </b> 24 Sep 2012</div>
             <div><b>Publisher: </b> Scholastic</div>
         </div>
         <div class="info-column">
             <div><b>Publication City/Country: </b> London, United Kingdom</div>
-            <div><b>Language: </b> English</div>
+            <div><b>Language: </b> {{book.language}}</div>
             <div><b>Nesto: </b> Smisliti</div>
         </div>
     </div>    
 </div>
 
 <div class="author-info-container">
-    <div class="info-heading">About Tomislav Jansky</div>
+    <div class="info-heading">About {{book.author.firstName}} {{book.author.lastName}}</div>
     <div class="author-description">
-        Maggie Stiefvater, geb. im November 1981 in Virginia, verlebte eine nach eigenen Worten sehr chaotische aber sehr kreative und musisch geprägte Kindheit und Jugend. Nach dem College versuchte sie u.a. als Kellnerin, Zeichenlehrerin beruflich Fuß zu fassen. Doch sehr bald schon meldeten sich ihre kreativen Talente und verlangten, ausgelebt zu werden zunächst als Musikerin und Songwriterin, dann zunehmend als bildende Künstlerin. Für ihre künstlerischen Arbeiten wurde sie inzwischen mit einigen wichtigen Preisen ausgezeichnet. Seit 2007 hat sich Stiefvater aufs Schreiben konzentriert und zählt inzwischen zu den erfolgreichsten Autorinnen der Romantasy.
+        {{book.author.description}}
     </div>
 </div>

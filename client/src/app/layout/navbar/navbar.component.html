@@ -8,7 +8,7 @@
                 <div><i class="nav-icon far fa-envelope"></i> Contact us</div>
             </div>
             <div class="nav-first-2">
-                <img src="./../Navbar_sredina.JPG" alt="">
+                <img src="./../../../assets/Navbar_sredina.JPG" alt="">
             </div>
             <div class="nav-first-3">
                 <div routerLink="/orders"><i class="nav-icon far fa-compass"></i> Order Status</div>
@@ -46,14 +46,14 @@
             <div class="nav-second-3">
                 <div class="basket-part-first">$0,00</div>
                 <div class="basket-divider">|</div>
-                <div class="basket-part-second">
+                <div routerLink="/basket" class="basket-part-second">
                     <div>{{(basket$ | async)?.items?.length ? (basket$ | async)?.items?.length : 0}}</div>
                     <i class="fas fa-shopping-basket basket-icon"></i>
                 </div>
             </div>
             
             <div class="basket-anchor">
-                <div class="nav-second-3-mobile">
+                <div routerLink="/basket" class="nav-second-3-mobile">
                     <div class="number-items">{{(basket$ | async)?.items?.length ? (basket$ | async)?.items?.length : 0}}</div>
                     <i class="fas fa-shopping-basket fa-lg basket-mobile-icon"></i>
                 </div>

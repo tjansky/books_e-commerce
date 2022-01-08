@@ -5,7 +5,7 @@
     width: 147px;
 } */
 
-.book-card{
+/* .book-card{
     display: flex;
     flex-direction: column;
     width: 140px;
@@ -69,4 +69,43 @@
 
 img{
     cursor: pointer;
+} */
+
+
+:host{
+    max-width: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 13px;
+}
+
+.book-card img{
+    /* width: 92px;
+    height: 139px; */
+    width: 130px;
+    cursor: pointer;
+}
+
+.book-title{
+    margin-top: 4px;
+    font-size: 15.5px;
+    min-height: 40px;
+    width: 100%;
+}
+
+.book-title:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.book-price{
+    color: #ff0072;
+    font-size: 18px;
+}
+
+.add-basket-btn{
+    margin-top: 7px;
+    height: 28px;
+    width: 95%;
 }

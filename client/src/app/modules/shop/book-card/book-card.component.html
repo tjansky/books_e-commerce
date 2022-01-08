@@ -7,11 +7,25 @@
     <div><button type="button" (click)="onAddInBasket(book)">Add to basket</button></div>
 </div> -->
 
-<div class="book-card">
+<!-- <div class="book-card">
     <img routerLink="/shop/{{book.id}}" src="{{book.image}}" alt="">
     <div routerLink="/shop/{{book.id}}" class="title">{{book.displayName}}</div>
     <div class="author"><span>{{book.author.displayName}}</span></div>
     <div class="format">{{book.format.displayName}}</div>
     <div class="price">{{book.price | currency}}</div>
     <button (click)="onAddInBasket(book)" class="add-btn" type="button">Add to basket</button>
+</div> -->
+
+
+<img routerLink="/shop/{{book.id}}" src="{{book.image}}" alt="test">
+<b routerLink="/shop/{{book.id}}" class="book-title">{{book.displayName}}</b>
+<div>{{book.author.displayName}}</div>
+<div class="start-container">
+    <i class="star fas fa-star"></i>
+    <i class="star fas fa-star"></i>
+    <i class="star fas fa-star"></i>
+    <i class="star fas fa-star-half-alt"></i>
+    <i class="star far fa-star"></i>
 </div>
+<div class="book-price">{{book.price | currency}}</div>
+<button (click)="onAddInBasket(book)" type="button" class="add-basket-btn blue-btn">Add to basket</button>

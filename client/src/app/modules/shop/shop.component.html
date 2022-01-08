@@ -70,373 +70,46 @@
 <div class="filters-section">
     <div class="filter-section-part">
         <div class="filter-title">Popular Authors</div>
-        <div class="filter-item">Tjansky Hamlet</div>
+        <!-- <div class="filter-item">Tjansky Hamlet</div>
         <div class="active-filter-item filter-item">Ivana Divic</div>
         <div class="filter-item">Tjansky Hamlet</div>
-        <div class="filter-item">Tjansky Helena H.</div>
+        <div class="filter-item">Tjansky Helena H.</div> -->
+        <div class="filter-item" (click)="onTopAuthorSelected(author.id)" *ngFor="let author of topAuthors">
+            {{author.displayName}}
+        </div>
     </div>
 
     <div class="filter-section-part">
         <div class="filter-title">Categories</div>
-        <div class="active-filter-item filter-item">Filozofija</div>
+        <!-- <div class="active-filter-item filter-item">Filozofija</div>
         <div class="filter-item">Astronomija</div>
         <div class="filter-item">Religija</div>
         <div class="filter-item">Fikcija</div>
         <div class="filter-item">Fitnes</div>
-        <div class="filter-item">Self improvement</div>
+        <div class="filter-item">Self improvement</div> -->
+        <div class="filter-item" (click)="onCategorySelected(category.id)" *ngFor="let category of categories">
+            {{category.displayName}}
+        </div>
     </div>
 
     <div class="filter-section-part">
         <div class="filter-title">Book Format</div>
-        <div class="filter-item">Audio</div>
+        <!-- <div class="filter-item">Audio</div>
         <div class="active-filter-item filter-item">Paperback</div>
         <div class="filter-item">Hardback</div>
-        <div class="filter-item">e-Book</div>
+        <div class="filter-item">e-Book</div> -->
+        <div class="filter-item" (click)="onFormatSelected(format.id)" *ngFor="let format of formats">
+            {{format.displayName}}
+        </div>
     </div>
     <button class="reset-filter-btn empty-btn">Reset filters</button>
 </div>
 
 <div class="books-section">
-    <!-- <div>paginacija</div> -->
     <div class="book-cards-holder">
         
         <!-- book cards -->
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4071/9781407134611.jpg" alt="test">
-            <b class="book-title">The Queen's Gambit</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4746/9781474622578.jpg" alt="test">
-            <b class="book-title">The Sapiens, Brief history of people</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4071/9781407134611.jpg" alt="test">
-            <b class="book-title">The Queen's Gambit</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/2414/9780241425428.jpg" alt="test">
-            <b class="book-title">The Man Who Died Twice</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4071/9781407134611.jpg" alt="test">
-            <b class="book-title">The Queen's Gambit</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4071/9781407134611.jpg" alt="test">
-            <b class="book-title">The Queen's Gambit</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4071/9781407134611.jpg" alt="test">
-            <b class="book-title">The Queen's Gambit</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4071/9781407134611.jpg" alt="test">
-            <b class="book-title">The Queen's Gambit</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4071/9781407134611.jpg" alt="test">
-            <b class="book-title">The Queen's Gambit</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4746/9781474622578.jpg" alt="test">
-            <b class="book-title">The Sapiens, Brief history of people</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4071/9781407134611.jpg" alt="test">
-            <b class="book-title">The Queen's Gambit</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/2414/9780241425428.jpg" alt="test">
-            <b class="book-title">The Man Who Died Twice</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4071/9781407134611.jpg" alt="test">
-            <b class="book-title">The Queen's Gambit</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4071/9781407134611.jpg" alt="test">
-            <b class="book-title">The Queen's Gambit</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4071/9781407134611.jpg" alt="test">
-            <b class="book-title">The Queen's Gambit</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4071/9781407134611.jpg" alt="test">
-            <b class="book-title">The Queen's Gambit</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4071/9781407134611.jpg" alt="test">
-            <b class="book-title">The Queen's Gambit</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4746/9781474622578.jpg" alt="test">
-            <b class="book-title">The Sapiens, Brief history of people</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4071/9781407134611.jpg" alt="test">
-            <b class="book-title">The Queen's Gambit</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/2414/9780241425428.jpg" alt="test">
-            <b class="book-title">The Man Who Died Twice</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4071/9781407134611.jpg" alt="test">
-            <b class="book-title">The Queen's Gambit</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4071/9781407134611.jpg" alt="test">
-            <b class="book-title">The Queen's Gambit</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4071/9781407134611.jpg" alt="test">
-            <b class="book-title">The Queen's Gambit</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
-        <div class="book-card">
-            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4071/9781407134611.jpg" alt="test">
-            <b class="book-title">The Queen's Gambit</b>
-            <div>Tomislav Jansky</div>
-            <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
-            </div>
-            <div class="book-price">$8,84</div>
-            <button class="add-basket-btn blue-btn">Add to basket</button>
-        </div>
+        <app-book-card *ngFor="let book of books" [book]="book"></app-book-card>
         <!-- end book cards -->
 
     </div>

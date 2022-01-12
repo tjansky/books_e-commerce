@@ -1,4 +1,4 @@
-<div class="bs-container">
+<!-- <div class="bs-container">
     <div class="bs-first">
         <img src="{{basketItem.image}}" alt="">
         <div class="bs-info">
@@ -22,4 +22,34 @@
             <button (click)="removeBasketItem()" class="remove-button">Remove</button>
         </div>
     </div>
+</div> -->
+
+<div class="basket-item-left">
+    <img src="{{basketItem.image}}" alt="">
+    <div>
+        <div class="basket-item-title">{{basketItem.title}}</div>
+        <div class="basket-starts start-container">
+            <i class="star fas fa-star"></i>
+            <i class="star fas fa-star"></i>
+            <i class="star fas fa-star"></i>
+            <i class="star fas fa-star-half-alt"></i>
+            <i class="star far fa-star"></i>
+        </div>
+        <div>DODPaperback, DODEnglish <span>|</span> DODTomislav Jansky</div>
+        <div class="basket-item-price">{{basketItem.price | currency}}</div>
+        <div>Currenly not avaliable because this is demo e-commerce project.</div>
+    </div>
+</div>
+<div class="basket-item-right">
+    <div class="amount-container">
+        <button (click)="decrementItemQuantity()" type="button" class="empty-btn inc-dec-btn">
+            <i class="fas fa-minus"></i>
+        </button>
+        <span class="item-amount">{{basketItem.quantity}}</span>
+        <button type="button" (click)="incrementItemQuantity()" class="empty-btn inc-dec-btn">
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+    <div class="basket-item-total-price">{{basketItem.quantity * basketItem.price | currency}}</div>
+    <button type="button" (click)="removeBasketItem()" class="remove-btn empty-btn">Remove</button>
 </div>

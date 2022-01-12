@@ -47,127 +47,37 @@
  -->
 
 
- <div class="basket-heading">Your Basket</div>
+<div class="basket-heading">Your Basket</div>
 
-                <div class="basket-sections-holder">
-                    <div class="basket-info-section">
-                        <div class="heading-para"><i class="fas fa-shopping-basket"></i> You have 2 items for a total of <b>$40,00</b> in your basket.</div>
-                        <button class="blue-btn checkout-btn">Checkout</button>
-                    </div>
-                    
-                    <div class="basket-items-section">
-                        <div class="basket-heading-deatils">Shopping basket details</div>
-                        <div>
+<div *ngIf="(basket$ | async) as basket" class="basket-sections-holder">
+    <div class="basket-info-section">
+        <div class="heading-para"><i class="fas fa-shopping-basket"></i> You have 2 items for a total of <b>{{(basketTotal$ | async) | currency}}</b>
+            in your basket.</div>
+        <button (click)="onCheckoutClick()" type="button" class="blue-btn checkout-btn">Checkout</button>
+    </div>
 
-                            <div class="basket-item">
-                                <div class="basket-item-left">
-                                    <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/2414/9780241425428.jpg" alt="">
-                                    <div>
-                                        <div class="basket-item-title">The Raven Boys</div>
-                                        <div class="basket-starts start-container">
-                                            <i class="star fas fa-star"></i>
-                                            <i class="star fas fa-star"></i>
-                                            <i class="star fas fa-star"></i>
-                                            <i class="star fas fa-star-half-alt"></i>
-                                            <i class="star far fa-star"></i>
-                                        </div>
-                                        <div>Paperback, English <span>|</span> Tomislav Jansky</div>
-                                        <div class="basket-item-price">$8,85</div>
-                                        <div>Currenly not avaliable because this is demo e-commerce project.</div>
-                                    </div>
-                                </div>
-                                <div class="basket-item-right">
-                                    <div class="amount-container">
-                                        <button class="empty-btn inc-dec-btn">
-                                            <i class="fas fa-minus"></i>
-                                        </button> 
-                                        <span class="item-amount">2</span>
-                                        <button class="empty-btn inc-dec-btn">
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </div>
-                                    <div class="basket-item-total-price">$24,20</div>
-                                    <button class="remove-btn empty-btn">Remove</button>
-                                </div>
-                            </div>
-                            <div class="basket-item">
-                                <div class="basket-item-left">
-                                    <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4071/9781407134611.jpg" alt="">
-                                    <div>
-                                        <div class="basket-item-title">The Raven Boys</div>
-                                        <div class="basket-starts start-container">
-                                            <i class="star fas fa-star"></i>
-                                            <i class="star fas fa-star"></i>
-                                            <i class="star fas fa-star"></i>
-                                            <i class="star fas fa-star-half-alt"></i>
-                                            <i class="star far fa-star"></i>
-                                        </div>
-                                        <div>Paperback, English <span>|</span> Tomislav Jansky</div>
-                                        <div class="basket-item-price">$8,85</div>
-                                        <div>Currenly not avaliable because this is demo e-commerce project.</div>
-                                    </div>
-                                </div>
-                                <div class="basket-item-right">
-                                    <div class="amount-container">
-                                        <button class="empty-btn inc-dec-btn">
-                                            <i class="fas fa-minus"></i>
-                                        </button> 
-                                        <span class="item-amount">2</span>
-                                        <button class="empty-btn inc-dec-btn">
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </div>
-                                    <div class="basket-item-total-price">$24,20</div>
-                                    <button class="remove-btn empty-btn">Remove</button>
-                                </div>
-                            </div>
-                            <div class="basket-item">
-                                <div class="basket-item-left">
-                                    <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9781/4746/9781474622578.jpg" alt="">
-                                    <div>
-                                        <div class="basket-item-title">The Raven Boys</div>
-                                        <div class="basket-starts start-container">
-                                            <i class="star fas fa-star"></i>
-                                            <i class="star fas fa-star"></i>
-                                            <i class="star fas fa-star"></i>
-                                            <i class="star fas fa-star-half-alt"></i>
-                                            <i class="star far fa-star"></i>
-                                        </div>
-                                        <div>Paperback, English <span>|</span> Tomislav Jansky</div>
-                                        <div class="basket-item-price">$8,85</div>
-                                        <div>Currenly not avaliable because this is demo e-commerce project.</div>
-                                    </div>
-                                </div>
-                                <div class="basket-item-right">
-                                    <div class="amount-container">
-                                        <button class="empty-btn inc-dec-btn">
-                                            <i class="fas fa-minus"></i>
-                                        </button> 
-                                        <span class="item-amount">2</span>
-                                        <button class="empty-btn inc-dec-btn">
-                                            <i class="fas fa-plus"></i>
-                                        </button>
-                                    </div>
-                                    <div class="basket-item-total-price">$24,20</div>
-                                    <button class="remove-btn empty-btn">Remove</button>
-                                </div>
-                            </div>
-                            
-                            
-                        </div>
-                        
-                    </div>
+    <div class="basket-items-section">
+        <div class="basket-heading-deatils">Shopping basket details</div>
+        <div>
+            <!-- basket items -->
+            <div *ngFor="let item of basket.items">
+                <app-book-summary [basketItem]="item"></app-book-summary>
+            </div>
+            <!-- end of basket items -->
+        </div>
 
-                    <div class="basket-checkout-section">
-                        <div class="basket-checkout-section-top">
-                            <div>Delivery cost</div>
-                            <div>FREE</div>
-                        </div>
-                        <div class="basket-checkout-section-bot">
-                            <div>Total</div>
-                            <div>$25,50</div>
-                        </div>
-                        
-                        <button class="blue-btn checkout-btn">Checkout</button>
-                    </div>
-                </div>
+    </div>
+
+    <div class="basket-checkout-section">
+        <div class="basket-checkout-section-top">
+            <div>Delivery cost</div>
+            <div>FREE</div>
+        </div>
+        <div class="basket-checkout-section-bot">
+            <div>Total</div>
+            <div>{{(basketTotal$ | async) | currency}}</div>
+        </div>
+
+        <button (click)="onCheckoutClick()" type="button" class="blue-btn checkout-btn">Checkout</button>
+    </div>
+</div>

@@ -74,7 +74,7 @@
         <div class="active-filter-item filter-item">Ivana Divic</div>
         <div class="filter-item">Tjansky Hamlet</div>
         <div class="filter-item">Tjansky Helena H.</div> -->
-        <div class="filter-item" (click)="onTopAuthorSelected(author.id)" *ngFor="let author of topAuthors">
+        <div class="filter-item" [ngClass]="{'active-filter-item': author.id === bookParams.authorId}" (click)="onTopAuthorSelected(author.id)" *ngFor="let author of topAuthors">
             {{author.displayName}}
         </div>
     </div>
@@ -87,7 +87,7 @@
         <div class="filter-item">Fikcija</div>
         <div class="filter-item">Fitnes</div>
         <div class="filter-item">Self improvement</div> -->
-        <div class="filter-item" (click)="onCategorySelected(category.id)" *ngFor="let category of categories">
+        <div class="filter-item" [ngClass]="{'active-filter-item': category.id === bookParams.categoryId}" (click)="onCategorySelected(category.id)" *ngFor="let category of categories">
             {{category.displayName}}
         </div>
     </div>
@@ -98,11 +98,11 @@
         <div class="active-filter-item filter-item">Paperback</div>
         <div class="filter-item">Hardback</div>
         <div class="filter-item">e-Book</div> -->
-        <div class="filter-item" (click)="onFormatSelected(format.id)" *ngFor="let format of formats">
+        <div class="filter-item" [ngClass]="{'active-filter-item': format.id === bookParams.formatId}" (click)="onFormatSelected(format.id)" *ngFor="let format of formats">
             {{format.displayName}}
         </div>
     </div>
-    <button class="reset-filter-btn empty-btn">Reset filters</button>
+    <button (click)="onFilterReset()" type="button" class="reset-filter-btn empty-btn">Reset filters</button>
 </div>
 
 <div class="books-section">

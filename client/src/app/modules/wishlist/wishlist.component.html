@@ -1,8 +1,33 @@
-<div>
-    <h3>Wishlist</h3>
-    <div>
-        <div *ngFor="let book of wishlistBooks">
-            <div>{{book.displayName}} <button (click)="onRemoveBook(book.id)" type="button">Remove</button></div>
+<div class="wishlist-heading">Wishlisted Books</div>
+
+
+    <div *ngIf="wishlistBooks.length > 0" class="wishlist-items-section">
+        <div>
+            <!-- wishlist items -->
+            <div class="wishlist-item" *ngFor="let book of wishlistBooks">
+                
+                <div class="basket-item-left">
+                    <img src="{{book.image}}" alt="">
+                    <div>
+                        <div class="basket-item-title">{{book.displayName}}</div>
+                        <div class="basket-starts start-container">
+                            <i class="star fas fa-star"></i>
+                            <i class="star fas fa-star"></i>
+                            <i class="star fas fa-star"></i>
+                            <i class="star fas fa-star-half-alt"></i>
+                            <i class="star far fa-star"></i>
+                        </div>
+                        <div>{{book.format.displayName}}, {{book.language}} <span>|</span> {{book.author.firstName}} {{book.author.lastName}}</div>
+                        <div class="basket-item-price">{{book.price | currency}}</div>
+                        <div>Currenly not avaliable because this is demo e-commerce project.</div>
+                    </div>
+                </div>
+                <div class="basket-item-right">
+                    <button (click)="onRemoveBook(book.id)" class="empty-btn remove-btn" type="button">Remove</button>
+                    <button (click)="onAddInBasket(book)" class="blue-btn remove-btn" type="button">Add to basket</button>
+                </div>
+
+            </div>
+            <!-- end of wishlist items -->
         </div>
     </div>
-</div>

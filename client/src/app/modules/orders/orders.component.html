@@ -4,9 +4,9 @@
         <!-- <div class="show-info">Showing 2 orders</div> -->
     </div>
     
-    <div class="order-cards-container">
+    <div *ngIf="orders.length > 0" class="order-cards-container">
     
-        <div class="order-card">
+        <!-- <div class="order-card">
             <div class="order-heading">
                 <div class="order-title">Order number BDU-445-23198972615</div>
                 <div class="order-heading-details">
@@ -59,29 +59,31 @@
                 </div>
     
             </div>
-        </div>
+        </div> -->
     
-        <div class="order-card">
+        <div *ngFor="let order of orders" class="order-card">
             <div class="order-heading">
-                <div class="order-title">Order number BDU-445-23198972615</div>
+                <div class="order-title">Order number: {{order.id}}</div>
                 <div class="order-heading-details">
-                    <div class="order-info-head">Placed on <b>October 16, 2021</b></div>
+                    <div class="order-info-head">Placed on <b>{{order.orderDate | date}}</b></div>
                     <div>
                         <div class="order-info-head"><b>Deliver to:</b></div>
-                        <div class="order-info-head">Tomislav Jansky, Kolodvorska 78, Lipovljani, 44322, Croatia</div>
+                        <div class="order-info-head">{{order.shipToFirstName}} {{order.shipToLastName}}, 
+                            {{order.shipToStreet}} {{order.shipToCity}}, {{order.shipToZipcode}}, Croatia
+                        </div>
                     </div>
-                    <div class="order-info-head"><b>Order status:</b> <span class="order-status-text">Payment recieved</span></div>
+                    <div class="order-info-head"><b>Order status: </b> <span class="order-status-text"> {{order.status}}</span></div>
                 </div>
             </div>
             <div class="order-body">
     
-                <div class="product-card">
+                <div *ngFor="let orderItem of order.orderItems" class="product-card">
                     <div class="product-top">
                         <div class="product-top-left">
-                            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/1413/9780141393063.jpg"
+                            <img src="{{orderItem.pictureUrl}}"
                                 alt="">
                             <div>
-                                <div class="product-title">The 4-Hour Work Week</div>
+                                <div class="product-title">{{orderItem.bookName}}</div>
                                 <div class="start-container">
                                     <i class="star fas fa-star"></i>
                                     <i class="star fas fa-star"></i>
@@ -89,60 +91,10 @@
                                     <i class="star fas fa-star-half-alt"></i>
                                     <i class="star far fa-star"></i>
                                 </div>
-                                <div class="product-detail">Timothy Ferriss</div>
-                                <div class="product-detail">Paperback</div>
-                                <div class="product-detail">Quantity: 1</div>
-                                <div class="product-price">$20,50</div>
-                            </div>
-                        </div>
-                        <div class="product-status">
-                            Shipped
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-top">
-                        <div class="product-top-left">
-                            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/0919/9780091929114.jpg"
-                                alt="">
-                            <div>
-                                <div class="product-title">The 4-Hour Work Week</div>
-                                <div class="start-container">
-                                    <i class="star fas fa-star"></i>
-                                    <i class="star fas fa-star"></i>
-                                    <i class="star fas fa-star"></i>
-                                    <i class="star fas fa-star-half-alt"></i>
-                                    <i class="star far fa-star"></i>
-                                </div>
-                                <div class="product-detail">Timothy Ferriss</div>
-                                <div class="product-detail">Paperback</div>
-                                <div class="product-detail">Quantity: 1</div>
-                                <div class="product-price">$20,50</div>
-                            </div>
-                        </div>
-                        <div class="product-status">
-                            Shipped
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-top">
-                        <div class="product-top-left">
-                            <img src="https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/mid/9780/1410/9780141042701.jpg"
-                                alt="">
-                            <div>
-                                <div class="product-title">The 4-Hour Work Week</div>
-                                <div class="start-container">
-                                    <i class="star fas fa-star"></i>
-                                    <i class="star fas fa-star"></i>
-                                    <i class="star fas fa-star"></i>
-                                    <i class="star fas fa-star-half-alt"></i>
-                                    <i class="star far fa-star"></i>
-                                </div>
-                                <div class="product-detail">Timothy Ferriss</div>
-                                <div class="product-detail">Paperback</div>
-                                <div class="product-detail">Quantity: 1</div>
-                                <div class="product-price">$20,50</div>
+                                <div class="product-detail">{{orderItem.authorFirstLastName}}</div>
+                                <div class="product-detail">{{orderItem.formatName}}</div>
+                                <div class="product-detail">Quantity: {{orderItem.quantity}}</div>
+                                <div class="product-price">{{orderItem.quantity * orderItem.price | currency}}</div>
                             </div>
                         </div>
                         <div class="product-status">
@@ -158,7 +110,7 @@
                     </div>
                     <div class="product-bot-second">
                         <div> Total order value:</div>
-                        <div>$15,65</div>
+                        <div>{{order.subTotal | currency}}</div>
                     </div>
                 </div>
     

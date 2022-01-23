@@ -22,6 +22,9 @@ export interface OrderItem {
     price: number;
     quantity: number;
     orderId: number;
+    authorFirstLastName: string;
+    formatName: string;
+    stars: number;
 }
 
 export interface Order {

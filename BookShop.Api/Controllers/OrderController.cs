@@ -18,9 +18,11 @@ namespace BookShop.Api.Controllers
     {
         private readonly IOrderService orderService;
         private readonly IMapper mapper;
+        private readonly IBookService bookService;
 
-        public OrderController(IOrderService orderService, IMapper mapper)
+        public OrderController(IBookService bookService, IOrderService orderService, IMapper mapper)
         {
+            this.bookService = bookService;
             this.orderService = orderService;
             this.mapper = mapper;
         }
@@ -53,6 +55,19 @@ namespace BookShop.Api.Controllers
             var orders = await orderService.GetAllUserOrdersByEmail(email);
 
             var ordersDto = mapper.Map<List<Order>, List<OrderDto>>(orders);
+
+            // find autho, format and number for stars for all orderItems
+            foreach (var order in ordersDto)
+            {
+                foreach (var orderItem in order.OrderItems)
+                {
+                    var bookData = await bookService.GetBookWithDetails(orderItem.BookId);
+                    
+                    orderItem.FormatName = bookData.Format.DisplayName;
+                    orderItem.AuthorFirstLastName = bookData.Author.FirstName + ' ' + bookData.Author.LastName;
+                    orderItem.Stars = 8;
+                } 
+            }
 
             return ordersDto;
         }

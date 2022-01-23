@@ -19,7 +19,7 @@ export class OrdersComponent implements OnInit {
   loadUserOrders() {
     this.orderApiService.getAllUserOrders().subscribe(res => {
       this.orders = res;
-      console.log(this.orders);
+      // console.log(this.orders);
     }, error => {
       console.log(error);
     });

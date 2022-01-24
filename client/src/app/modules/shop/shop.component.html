@@ -114,14 +114,11 @@
 
     </div>
     <div class="pagination-bottom">
-        <div>
-            <span class="pag-box"><i class="pag-icon fas fa-angle-double-left"></i></span>
-            <span class="pag-box">1</span>
-            <span class="active-box pag-box">2</span>
-            <span class="pag-box">3</span>
-            <span class="pag-box">4</span>
-            <span class="pag-box">5</span>
-            <span class="pag-box"><i class="pag-icon fas fa-angle-double-right"></i></span>
-        </div>
+        <app-book-pagination *ngIf="pagination.totalPages > 1"
+            (newSquareClicked)="onPaginationClick($event)" 
+            [currentPage]="pagination.currentPage" 
+            [totalCount]="pagination.totalPages" 
+            [pageSize]="pagination.pageSize">
+        </app-book-pagination>
     </div>
 </div>

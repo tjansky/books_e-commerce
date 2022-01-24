@@ -8,22 +8,15 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class BookPaginationComponent implements OnInit {
 
   @Output() newSquareClicked = new EventEmitter<{pageNum: number, pageSize: number}>();
+  // this.newSquareClicked.emit({ pageNum: squareNumber, pageSize: this.pageSize });
 
   @Input() currentPage: number = 1;
-  //@Input() totalPages: number = 11;
-  @Input() pageSize: number = 10;
-  @Input() totalCount: number = 10;
+  @Input() pageSize: number;
+  @Input() totalCount: number;
 
-  firstSquareList: number[] = [];
-  middleSquareList: number[] = [];
-  lastSquareList: number[] = [];
+  currentBoxes: number[] = [];
+  maxAmountOfBoxes = 5;
 
-  leftDots: boolean;
-  rightDots: boolean;
-
-
-  // how many squares on start and end before it starts to include middle squares
-  @Input() startEndCount = 4;
 
   constructor() { }
 
@@ -34,62 +27,40 @@ export class BookPaginationComponent implements OnInit {
 
   onSquareClick(squareNumber: number, isInitial = false) {
     this.currentPage = squareNumber;
-    this.firstSquareList = [];
-    this.middleSquareList = [];
-    this.lastSquareList = [];
 
-    const isAtStart = squareNumber < this.startEndCount;
-    const isAtEnd = squareNumber > this.totalCount - (this.startEndCount - 1);
-    const isInMiddle = !isAtStart && !isAtEnd;
-
-    const isShort = this.totalCount <= (this.startEndCount + 3);
-
-    // if there is not enough squares only one list is required
-    if (isShort) {
-      this.leftDots = false;
-      this.rightDots = false;
-
-      let i = 1;
-      while (i < this.totalCount + 1) {
-        this.firstSquareList.push(i);
-        i++;
-      }
-    } else { 
-      // if list isnt short than there is more lists of squares:
-
-      // if current page is less than startCount show first squares
-      if (isAtStart) {
-        this.leftDots = true;
-        this.rightDots = false;
-        let i = 1;
-        while (i < this.startEndCount + 1) {
-          this.firstSquareList.push(i);
-          i++;
-        }
-      } else {
-        this.firstSquareList = [1];
-      }
-
-      // if current page is at the end show last squares
-      if (isAtEnd) {
-        this.leftDots = true;
-        this.rightDots = false;
-        let i = this.totalCount - (this.startEndCount - 1);
-        while (i <= this.totalCount) {
-          this.lastSquareList.push(i);
-          i++;
-        }
-      } else {
-        this.lastSquareList = [this.totalCount];
-      }
-
-      // if current page is in the middle: show first, last and 3 of middle squares
-      if (isInMiddle) {
-        this.leftDots = true;
-        this.rightDots = true;
-        this.middleSquareList = [squareNumber - 1, squareNumber, squareNumber + 1];
+    // if amount of boxes is less than max+1, show all you have
+    if (this.totalCount < this.maxAmountOfBoxes+1 || (this.maxAmountOfBoxes+1 > this.currentPage && 0 < this.currentPage)) {
+      this.currentBoxes = [];
+      let maxCounter = this.totalCount > this.maxAmountOfBoxes ? this.maxAmountOfBoxes : this.totalCount;
+      for (let i = 1; i < maxCounter+1; i++) {
+        const element = i;
+        this.currentBoxes.push(i);
       }
     }
+
+    // if current box is in last 3, show last 5
+    // TODO - make this in for lopp !
+    else if (this.currentPage === this.currentBoxes.length ||
+             this.currentPage === this.currentBoxes.length-1 ||
+             this.currentPage === this.currentBoxes.length-2) {
+        this.currentBoxes = [];
+        this.currentBoxes.push(this.currentBoxes.length-4);
+        this.currentBoxes.push(this.currentBoxes.length-3);
+        this.currentBoxes.push(this.currentBoxes.length-2);
+        this.currentBoxes.push(this.currentBoxes.length-1);
+        this.currentBoxes.push(this.currentBoxes.length);
+    }
+
+    // if current box in the middle of boxes
+    // TODO - make this in for lopp !
+    else {
+        this.currentBoxes.push(this.currentPage-2);
+        this.currentBoxes.push(this.currentPage-1);
+        this.currentBoxes.push(this.currentPage);
+        this.currentBoxes.push(this.currentPage+1);
+        this.currentBoxes.push(this.currentPage+2);
+    }
+
     // notice parent that new square was clicked
     if (!isInitial) {
       this.newSquareClicked.emit({ pageNum: squareNumber, pageSize: this.pageSize });

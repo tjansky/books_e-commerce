@@ -1,4 +1,4 @@
-.pagination{
+/* .pagination{
     display: flex;
     gap: 4px;
 }
@@ -24,4 +24,32 @@
 .active-square{
     background-color: #f48225!important;
     color: white;
+} */
+
+
+
+.pag-icon{
+    font-weight: 300;
+    font-size: 12.5px;
+}
+
+.pag-box{
+    border: 1px solid #ddd;
+    padding-top: 4px;
+    padding-right: 9px;
+    padding-bottom: 4px;
+    padding-left: 9px;
+    margin-left: 0.5px;
+    font-size: 17.5px;
+    color: rgb(63, 63, 63);
+    cursor: pointer;
+}
+
+.pag-box:hover{
+    background-color: #f0f0f0;
+}
+
+.active-box{
+    color: #fff !important;
+    background-color: #10bbd5 !important;
 }

@@ -31,6 +31,16 @@ login(email: string, password: string) {
         }));
 }
 
+  register(firstName: string, email: string, password: string, lastName = "placeholder") {
+    return this.http.post<any>(`${environment.baseUrl}/Account/register`, { firstName, lastName, email, password })
+      .pipe(map(user => {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        localStorage.setItem('loggedUser', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+        return user;
+      }));
+  }
+
 logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('loggedUser');

@@ -1,14 +1,14 @@
-<div class="register">
+<form class="register" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="login-register-heading">Sign-Up</div>
     <div>
-        <div class="already-info">Already have account?</div>
+        <div routerLink="/account/login" class="already-info">Already have account?</div>
         <div>
-            <input class="login-register-input" type="text" placeholder="Friendly username">
-            <input class="login-register-input" type="text" placeholder="Your email address">
-            <input class="login-register-input" type="password" placeholder="New password">
+            <input class="login-register-input" formControlName="username" type="text" placeholder="Friendly username">
+            <input class="login-register-input" formControlName="email" type="text" placeholder="Your email address">
+            <input class="login-register-input" formControlName="password" type="password" placeholder="New password">
         </div>
     </div>
     <div>
         <button class="blue-btn action-btn">Register</button>
     </div>
-</div>
+</form>

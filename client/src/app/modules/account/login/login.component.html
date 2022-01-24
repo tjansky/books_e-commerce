@@ -1,7 +1,7 @@
 <form class="login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="login-register-heading">Sign-In</div>
     <div>
-        <div class="register-info">Register new user?</div>
+        <div routerLink="/account/register" class="register-info">Register new user?</div>
         <div>
             <input class="login-register-input" formControlName="email" type="text" placeholder="Your email address">
             <input class="login-register-input" formControlName="password" type="password" placeholder="Demo Book password">

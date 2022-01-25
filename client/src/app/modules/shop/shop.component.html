@@ -114,7 +114,7 @@
 
     </div>
     <div class="pagination-bottom">
-        <app-book-pagination *ngIf="pagination.totalPages > 1"
+        <app-book-pagination *ngIf="pagination?.totalPages > 1"
             (newSquareClicked)="onPaginationClick($event)" 
             [currentPage]="pagination.currentPage" 
             [totalCount]="pagination.totalPages" 

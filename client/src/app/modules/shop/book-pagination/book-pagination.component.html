@@ -42,11 +42,8 @@
 
 
 
-<span class="pag-box"><i class="pag-icon fas fa-angle-double-left"></i></span>
-<span (click)="onSquareClick(box)" *ngFor="let box of currentBoxes" [ngClass]="{'active-box' : currentPage==box}" class="pag-box">{{box}}</span>
-<!-- <span class="pag-box">1</span>
-<span class="active-box pag-box">2</span>
-<span class="pag-box">3</span>
-<span class="pag-box">4</span>
-<span class="pag-box">5</span> -->
-<span class="pag-box"><i class="pag-icon fas fa-angle-double-right"></i></span>
+<button type="button" (click)="onSquareClick(currentPage-1)" [disabled]="currentPage <= 1" class="pag-box"><i class="pag-icon fas fa-angle-double-left"></i></button>
+<span (click)="onSquareClick(box)" *ngFor="let box of currentBoxes" [ngClass]="{'active-box' : currentPage==box}" class="pag-box">
+    {{box}}
+</span>
+<button type="button" (click)="onSquareClick(currentPage+1)" [disabled]="currentPage >= totalCount" class="pag-box"><i class="pag-icon fas fa-angle-double-right"></i></button>

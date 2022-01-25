@@ -3,6 +3,6 @@ export class BookParams {
     categoryId = 0;
     authorId = 0;
     pageNumber = 1;
-    pageSize = 20;
+    pageSize = 12;
     search: string;
 }

@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit {
   @ViewChild('search', {static: true}) searchTerm: ElementRef;
   loggedUser: User;
   basket$: Observable<Basket>;
+  basketTotal$: Observable<number>;
 
   constructor(private basketService: BasketService, private shopService: ShopService, private router: Router, private authService: AuthService) {
     this.authService.currentUser.subscribe(x => this.loggedUser = x);
@@ -23,6 +24,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.basket$ = this.basketService.basket$;
+    this.basketTotal$ = this.basketService.basketTotal$;
 
     // subscribe on remove search subject
     this.shopService.searchRemoved$.subscribe(toRemove => {

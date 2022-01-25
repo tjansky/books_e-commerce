@@ -44,7 +44,8 @@
             </div>
 
             <div class="nav-second-3">
-                <div class="basket-part-first">$0,00</div>
+                <!-- <div class="basket-part-first">{{((basketTotal$ | async) | currency) || '$0.00'}}</div> -->
+                <div class="basket-part-first">{{((basketTotal$ | async)>0) && ((basket$ | async)?.items?.length) ? ((basketTotal$ | async) | currency) : '$0.00'}}</div>
                 <div class="basket-divider">|</div>
                 <div routerLink="/basket" class="basket-part-second">
                     <div>{{(basket$ | async)?.items?.length ? (basket$ | async)?.items?.length : 0}}</div>

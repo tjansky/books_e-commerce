@@ -56,41 +56,6 @@
     background-color: #10bbd5 !important;
 }
 
-/* .book-card{
-    max-width: 140px;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    margin-bottom: 13px;
-}
-
-.book-card img{
-    width: 130px;
-    cursor: pointer;
-}
-
-.book-title{
-    margin-top: 4px;
-    font-size: 15.5px;
-    min-height: 40px;
-    width: 100%;
-}
-
-.book-title:hover{
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-.book-price{
-    color: #ff0072;
-    font-size: 18px;
-}
-
-.add-basket-btn{
-    margin-top: 7px;
-    height: 28px;
-    width: 95%;
-} */
 
 .book-cards-holder{
     display: flex;
@@ -112,32 +77,6 @@
     /* padding-left: 5px; */
     text-align: center;
 }
-
-/* .pag-icon{
-    font-weight: 300;
-    font-size: 12.5px;
-}
-
-.pag-box{
-    border: 1px solid #ddd;
-    padding-top: 4px;
-    padding-right: 9px;
-    padding-bottom: 4px;
-    padding-left: 9px;
-    margin-left: -5px;
-    font-size: 17.5px;
-    color: rgb(63, 63, 63);
-    cursor: pointer;
-}
-
-.pag-box:hover{
-    background-color: #f0f0f0;
-}
-
-.active-box{
-    color: #fff !important;
-    background-color: #10bbd5 !important;
-} */
 
 
 /* na 940px pocni mijenjat sve */

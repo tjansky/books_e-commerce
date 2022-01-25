@@ -1,79 +1,7 @@
-<!-- 
-<div class="shop-container">
-
-    <div class="filter-container">
-        <div class="filter-section">
-            <div class="filter-title">Formats</div>
-            <div *ngFor="let format of formats">
-                <div (click)="onFormatSelected(format.id)">
-                    {{format.displayName}}
-                </div>
-            </div>
-        </div>
-        
-        <div class="filter-section">
-            <div class="filter-title">Categories</div>
-            <div *ngFor="let category of categories">
-                <div (click)="onCategorySelected(category.id)">
-                    {{category.displayName}}
-                </div>
-            </div>
-        </div>
-        
-        <div class="filter-section">
-            <div class="filter-title">Top Authors</div>
-            <div *ngFor="let author of topAuthors">
-                <div (click)="onTopAuthorSelected(author.id)">
-                    {{author.displayName}}
-                </div>
-            </div>
-        </div>
-
-        <button (click)="onFilterReset()" type="button" class="reset-filter">Reset filters XDDD</button>
-    </div>
-
-    
-    
-    <div class="wrraper-cards">
-
-        <div>
-            <app-book-pagination *ngIf="pagination"
-            (newSquareClicked)="onPaginationClick($event)" 
-            [currentPage]="pagination.currentPage" 
-            [totalCount]="pagination.totalPages" 
-            [pageSize]="pagination.pageSize">
-            </app-book-pagination>
-        </div>
-
-
-
-        <div class="book-cards-container">
-            <div *ngFor="let book of books">
-                <app-book-card [book]="book"></app-book-card>
-            </div>
-        </div>
-
-        <div>
-            <app-book-pagination *ngIf="pagination"
-            (newSquareClicked)="onPaginationClick($event)" 
-            [currentPage]="pagination.currentPage" 
-            [totalCount]="pagination.totalPages" 
-            [pageSize]="pagination.pageSize">
-            </app-book-pagination>
-        </div>
-
-    </div>
-    
-    
-</div> -->
 
 <div class="filters-section">
     <div class="filter-section-part">
         <div class="filter-title">Popular Authors</div>
-        <!-- <div class="filter-item">Tjansky Hamlet</div>
-        <div class="active-filter-item filter-item">Ivana Divic</div>
-        <div class="filter-item">Tjansky Hamlet</div>
-        <div class="filter-item">Tjansky Helena H.</div> -->
         <div class="filter-item" [ngClass]="{'active-filter-item': author.id === bookParams.authorId}" (click)="onTopAuthorSelected(author.id)" *ngFor="let author of topAuthors">
             {{author.displayName}}
         </div>
@@ -81,12 +9,6 @@
 
     <div class="filter-section-part">
         <div class="filter-title">Categories</div>
-        <!-- <div class="active-filter-item filter-item">Filozofija</div>
-        <div class="filter-item">Astronomija</div>
-        <div class="filter-item">Religija</div>
-        <div class="filter-item">Fikcija</div>
-        <div class="filter-item">Fitnes</div>
-        <div class="filter-item">Self improvement</div> -->
         <div class="filter-item" [ngClass]="{'active-filter-item': category.id === bookParams.categoryId}" (click)="onCategorySelected(category.id)" *ngFor="let category of categories">
             {{category.displayName}}
         </div>
@@ -94,10 +16,6 @@
 
     <div class="filter-section-part">
         <div class="filter-title">Book Format</div>
-        <!-- <div class="filter-item">Audio</div>
-        <div class="active-filter-item filter-item">Paperback</div>
-        <div class="filter-item">Hardback</div>
-        <div class="filter-item">e-Book</div> -->
         <div class="filter-item" [ngClass]="{'active-filter-item': format.id === bookParams.formatId}" (click)="onFormatSelected(format.id)" *ngFor="let format of formats">
             {{format.displayName}}
         </div>

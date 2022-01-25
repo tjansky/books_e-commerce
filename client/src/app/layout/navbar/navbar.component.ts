@@ -23,6 +23,14 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.basket$ = this.basketService.basket$;
+
+    // subscribe on remove search subject
+    this.shopService.searchRemoved$.subscribe(toRemove => {
+      if(toRemove) {
+        // console.log("Removing search from INPUT");
+        this.searchTerm.nativeElement.value = null
+      }
+    })
   }
 
   onSearchClick() {

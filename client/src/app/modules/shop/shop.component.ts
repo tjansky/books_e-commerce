@@ -30,17 +30,15 @@ export class ShopComponent implements OnInit {
   bookParams = new BookParams();
 
   ngOnInit(): void {
-    this.getBooks();
     this.getTopAuthors();
     this.getFormats();
     this.getCategories();
 
     // subscribe on search subject
     this.shopService.searchBooksQuery$.subscribe(search => {
-      console.log("Search subject subscribed in shop component with value: ", search);
+      //console.log("Search subject subscribed in shop component with value: ", search);
       if (search) {
         this.bookParams.search = search;
-        //this.getBooks();
       } else {
         this.bookParams.search = "";
       } 
@@ -48,6 +46,12 @@ export class ShopComponent implements OnInit {
       this.getBooks();
     })
   };
+
+  ngOnDestroy() {
+    // when leaving from shop, remove anything from search subject and input
+    this.shopService.deleteSearchQuery();
+    this.shopService.removeSearch(); 
+  }
 
   getBooks() {
     // while we wait for books to be retrvied, empty old books list
@@ -111,15 +115,11 @@ export class ShopComponent implements OnInit {
     this.getBooks();
   }
 
-  // onSearch() {
-  //   this.bookParams.search = "sapiens";
-  //   this.bookParams.pageNumber = 1;
-  //   this.getBooks();
-  // }
 
   onFilterReset() {
-    // TODO - clear search input
     this.bookParams = new BookParams();
+    this.shopService.deleteSearchQuery();
+    this.shopService.removeSearch(); 
     this.getBooks();
   }
 

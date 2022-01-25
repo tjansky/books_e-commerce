@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopService {
-  private searchBooksQuerySource = new Subject<string>();
+  private searchBooksQuerySource = new BehaviorSubject<string>(null);
   searchBooksQuery$ = this.searchBooksQuerySource.asObservable();
+
+  private searchRemovedSource = new BehaviorSubject<boolean>(false);
+  searchRemoved$ = this.searchRemovedSource.asObservable();
 
   constructor() { }
 
@@ -16,5 +19,9 @@ export class ShopService {
 
   deleteSearchQuery() {
     this.searchBooksQuerySource.next(null);
+  }
+
+  removeSearch() {
+    this.searchRemovedSource.next(true);
   }
 }

@@ -15,6 +15,7 @@ namespace BookShop.Api.Dtos
         public string Publisher { get; set; }
         public string PublicationCity { get; set; }
         public string Language { get; set; }
+        public int Stars { get; set; }
 
         public int AuthorId { get; set; }
         public virtual AuthorDto Author { get; set; }

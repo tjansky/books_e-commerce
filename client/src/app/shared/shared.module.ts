@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BookSummaryComponent } from './components/book-summary/book-summary.component';
+import { StarsComponent } from './components/stars/stars.component';
 
 
 
 @NgModule({
-  declarations: [BookSummaryComponent],
+  declarations: [BookSummaryComponent, StarsComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -19,7 +20,8 @@ import { BookSummaryComponent } from './components/book-summary/book-summary.com
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    BookSummaryComponent
+    BookSummaryComponent,
+    StarsComponent
   ]
 })
 export class SharedModule { }

@@ -14,4 +14,5 @@ export interface Item {
     format: string;
     language: string;
     author: string;
+    stars: number;
 }

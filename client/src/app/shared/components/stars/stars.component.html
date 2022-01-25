@@ -1,0 +1,8 @@
+<!-- full stars -->
+<i *ngFor="let e of [].constructor(fullStars)" class="star fas fa-star"></i>
+
+<!-- half star -->
+<i *ngIf="halfStar" class="star fas fa-star-half-alt"></i>
+
+<!-- empty stars -->
+<i *ngFor="let e of [].constructor(emptyStarts)" class="star far fa-star"></i>

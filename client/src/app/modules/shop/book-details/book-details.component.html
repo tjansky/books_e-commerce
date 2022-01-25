@@ -1,80 +1,3 @@
-<!-- 
-<div class="xd">
-
-
-<div *ngIf="book" class="book-details-container">
-
-    <div class="card-container">
-        <div class="f-card-container has-padding">
-            <div class="img-div">
-                <img src="{{book.image}}" alt="">
-            </div>
-            <div class="main-card-right">
-                <div><h2>{{book.displayName}}</h2></div>
-                <div class="main-details">{{book.format.displayName}}  |  {{book.language}}</div>
-                <div class="main-details">By (author) {{book.author.displayName}} - {{book.author.firstName}} {{book.author.lastName}}</div>
-                <div class="book-icons-container">
-                    <div><i class="fas fa-book-open"></i></div>
-                    <div><i class="fas fa-book"></i></div>
-                    <div><i class="fas fa-volume-down"></i></div>
-                    <div><i class="fas fa-undo-alt"></i></div>
-                </div>
-                <div class="description-section">
-                    {{book.description}}
-                </div>
-            </div>
-        </div>
-
-        <div class="s-card-container has-padding">
-            <div class="is-price">{{book.price | currency}}</div>
-            <hr>
-            <div class="scc-div">
-                <i class="far fa-lg fa-paper-plane"></i> 
-                <b>Free delivery worldwide</b> 
-            </div>
-            <div class="scc-div">
-                <i class="far fa-lg fa-check-circle"></i> 
-                <b>Price includes VAT/import taxes for EU delivery</b> 
-            </div>
-            <div class="scc-div">
-                <i class="far fa-lg fa-times-circle"></i> 
-                <b>Not expected to be delivered since it is demo app shop</b> 
-            </div>
-            <hr>
-            <div class="scc-btns-container">
-                    <button class="scc-btns basket-btn" type="button" (click)="addBookToBasket(book)">Add to basket</button>
-                    <button class="scc-btns wishlist-btn" type="button" (click)="onBookAddToWishlist(book.id)">Add to wishlist</button>
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="product-deatils-container has-padding">
-        <div class="second-headings">Product details</div>
-        <div class="p-d-column-container">
-            <div class="first-par-details">
-                <div><span class="details-headings">Format:</span> {{book.format.displayName}}</div>
-                <div><span class="details-headings">Publication date:</span> 14 Dec 2021</div>
-                <div><span class="details-headings">Publisher:</span> {{book.publisher}}</div>
-                <div><span class="details-headings">Publication City/Country:</span> {{book.publicationCity}}</div>
-            </div>
-            <div class="second-par-details">
-                <div><span class="details-headings">Language:</span> {{book.language}}</div>
-                <div><span class="details-headings">Category:</span> {{book.category.displayName}}</div>
-                <div><span class="details-headings">Author:</span> {{book.author.displayName}}</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="author-details-container has-padding">
-        <div class="second-headings">About {{book.author.displayName}}</div>
-        <div class="author-description">
-            {{book.author.description}}
-        </div>
-    </div>
-
-</div>
-</div> -->
 
 <div class="first-row">
     <div class="main-book-details-container">
@@ -82,11 +5,7 @@
         <div class="main-book-right">
             <div class="book-title">{{book.displayName}}</div>
             <div class="start-container">
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star"></i>
-                <i class="star fas fa-star-half-alt"></i>
-                <i class="star far fa-star"></i>
+                <app-stars [bookRating]="book.stars"></app-stars>
             </div>
             <div>{{book.format.displayName}}  |  {{book.language}}</div>
             <div>By (author) {{book.author.firstName}} {{book.author.lastName}}</div>

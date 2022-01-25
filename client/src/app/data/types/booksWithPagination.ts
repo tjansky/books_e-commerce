@@ -32,6 +32,7 @@
         category: Category;
         formatId: number;
         format: Format;
+        stars: number;
     }
 
     export interface Pagination {

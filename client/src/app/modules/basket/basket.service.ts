@@ -110,7 +110,8 @@ export class BasketService {
       quantity: quantity,
       format: book.format.displayName,
       language: book.language,
-      author: book.author.firstName + ' ' + book.author.lastName
+      author: book.author.firstName + ' ' + book.author.lastName,
+      stars: book.stars
     };
   }
 

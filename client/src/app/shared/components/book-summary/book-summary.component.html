@@ -4,11 +4,7 @@
     <div>
         <div class="basket-item-title">{{basketItem.title}}</div>
         <div class="basket-starts start-container">
-            <i class="star fas fa-star"></i>
-            <i class="star fas fa-star"></i>
-            <i class="star fas fa-star"></i>
-            <i class="star fas fa-star-half-alt"></i>
-            <i class="star far fa-star"></i>
+            <app-stars [bookRating]="basketItem.stars"></app-stars>
         </div>
         <div>{{basketItem.format}}, {{basketItem.language}} <span>|</span> {{basketItem.author}}</div>
         <div class="basket-item-price">{{basketItem.price | currency}}</div>

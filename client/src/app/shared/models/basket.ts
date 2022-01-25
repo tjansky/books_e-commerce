@@ -10,4 +10,8 @@ export interface Item {
     image: string;
     price: number;
     quantity: number;
+
+    format: string;
+    language: string;
+    author: string;
 }

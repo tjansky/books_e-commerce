@@ -1,58 +1,11 @@
-<!-- 
-<div class="basket-heading">
-    Your basket
-</div>
-
-<div *ngIf="(basket$ | async) as basket">
-
-    <div class="basket-info">
-        <div class="basket-info-text">
-            <i class="fas fa-shopping-basket"></i> You have 2 items for a total of <b>{{(basketTotal$ | async) | currency}}</b> in your basket.
-        </div>
-        <div class="basket-info-btn-con">
-            <button type="button" class="checkout-btn">Checkout</button>
-        </div>
-    </div>
-
-    <div class="basket-card-container">
-        <div *ngFor="let item of basket.items">
-            <app-book-summary [basketItem]="item"></app-book-summary>
-        </div>
-    </div>
-    
-    <div class="basket-footer">
-        <div class="row-conatiner">
-            <div class="delivery-row">
-                <div>Delivery cost</div>
-                <div>FREE</div>
-            </div>
-            <div class="total-row">
-                <div>Total</div>
-                <div>{{(basketTotal$ | async) | currency}}</div>
-            </div>
-            <div class="button-row">
-                <button (click)="onCheckoutClick()" class="checkout-btn" type="button">Checkout</button>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-
-<div class="no-basket-info" *ngIf="(basket$ | async) === null">
-    <div>There are no items in your basket.</div>
-    <div><button routerLink="/shop" type="button" class="con-shop-btn">Continue shopping</button></div>
-</div>
-
- -->
-
-
 <div class="basket-heading">Your Basket</div>
 
 <div *ngIf="(basket$ | async) as basket" class="basket-sections-holder">
     <div class="basket-info-section">
-        <div class="heading-para"><i class="fas fa-shopping-basket"></i> You have 2 items for a total of <b>{{(basketTotal$ | async) | currency}}</b>
-            in your basket.</div>
+        <div class="heading-para">
+            <i class="fas fa-shopping-basket"></i> You have 2 items for a total of 
+            <b>{{(basketTotal$ | async) | currency}}</b> in your basket.
+        </div>
         <button (click)="onCheckoutClick()" type="button" class="blue-btn checkout-btn">Checkout</button>
     </div>
 

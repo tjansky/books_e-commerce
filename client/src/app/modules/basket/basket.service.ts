@@ -21,12 +21,6 @@ export class BasketService {
     this.calculateTotals();
   }
 
-  // getBasket() {
-  //   const basket: Basket = this.getBasketFromLocStorage();
-  //   if (basket) {
-  //     this.basketSource.next(basket);
-  //   }
-  // }
 
   getCurrentBasketValue() {
     return this.basketSource.value;
@@ -113,7 +107,10 @@ export class BasketService {
       title: book.displayName,
       image: book.image,
       price: book.price,
-      quantity: quantity
+      quantity: quantity,
+      format: book.format.displayName,
+      language: book.language,
+      author: book.author.firstName + ' ' + book.author.lastName
     };
   }
 

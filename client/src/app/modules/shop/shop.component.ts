@@ -89,16 +89,19 @@ export class ShopComponent implements OnInit {
 
   onFormatSelected(formatId: number) {
     this.bookParams.formatId = formatId;
+    this.bookParams.pageNumber = 1;
     this.getBooks();
   }
 
   onCategorySelected(categoryId: number) {
     this.bookParams.categoryId = categoryId;
+    this.bookParams.pageNumber = 1;
     this.getBooks();
   }
 
   onTopAuthorSelected(authorId: number) {
     this.bookParams.authorId = authorId;
+    this.bookParams.pageNumber = 1;
     this.getBooks();
   }
 

@@ -1,49 +1,22 @@
-<!-- <div class="pagination">
 
-    <button type="button" class="square" (click)="onSquareClick(currentPage-1)" [disabled]="currentPage <= 1">Previuos</button>
+<button 
+    type="button" 
+    (click)="onSquareClick(currentPage-1)" 
+    [ngClass]="{'pag-inactive' : currentPage <= 1}" 
+    [disabled]="currentPage <= 1" 
+    class="pag-square">
+        <i class="pag-icon fas fa-angle-double-left"></i>
+</button>
 
-    <div class="square-container">
-        <button
-            class="square"
-            [ngClass]="{'active-square' : currentPage==s}"
-            *ngFor="let s of firstSquareList"
-            (click)="onSquareClick(s)"
-            type="button"
-        >{{s}}</button>
-    </div>
-
-    <div *ngIf="leftDots">---</div>
-
-    <div class="square-container">
-        <button
-            class="square"
-            [ngClass]="{'active-square' : currentPage==s}"
-            *ngFor="let s of middleSquareList"
-            (click)="onSquareClick(s)"
-            type="button"
-            >{{s}}</button>
-    </div>
-
-    <div *ngIf="rightDots">---</div>
-
-    <div class="square-container">
-        <button 
-            class="square"
-            [ngClass]="{'active-square' : currentPage==s}"
-            *ngFor="let s of lastSquareList"
-            (click)="onSquareClick(s)"
-            type="button"
-        >{{s}}</button>
-    </div>
-
-    <button type="button" class="square" (click)="onSquareClick(currentPage+1)" [disabled]="currentPage >= totalCount">Next</button>
-</div> -->
-
-
-
-
-<button type="button" (click)="onSquareClick(currentPage-1)" [disabled]="currentPage <= 1" class="pag-box"><i class="pag-icon fas fa-angle-double-left"></i></button>
-<span (click)="onSquareClick(box)" *ngFor="let box of currentBoxes" [ngClass]="{'active-box' : currentPage==box}" class="pag-box">
+<div (click)="onSquareClick(box)" *ngFor="let box of currentBoxes" [ngClass]="{'active-box' : currentPage==box}" class="pag-square">
     {{box}}
-</span>
-<button type="button" (click)="onSquareClick(currentPage+1)" [disabled]="currentPage >= totalCount" class="pag-box"><i class="pag-icon fas fa-angle-double-right"></i></button>
+</div>
+
+<button 
+    type="button" 
+    (click)="onSquareClick(currentPage+1)" 
+    [ngClass]="{'pag-inactive' : currentPage >= totalCount}" 
+    [disabled]="currentPage >= totalCount" 
+    class="pag-square">
+        <i class="pag-icon fas fa-angle-double-right"></i>
+</button>

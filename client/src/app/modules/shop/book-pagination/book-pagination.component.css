@@ -1,55 +1,36 @@
-/* .pagination{
+
+:host{
     display: flex;
-    gap: 4px;
+    justify-content: center;
 }
-
-.square-container{
-    display: flex;
-    gap: 4px;
-}
-
-.square{
-    background-color: transparent;
-    color: #3b4045;
-    border: 1px solid #d6d9dc;
-    border-radius: 3px;
-    font-size: 18px;
-}
-
-
-.square:hover{
-    background-color: rgb(193, 203, 212);
-}
-
-.active-square{
-    background-color: #f48225!important;
-    color: white;
-} */
-
-
 
 .pag-icon{
     font-weight: 300;
     font-size: 12.5px;
 }
 
-.pag-box{
+.pag-square{
     border: 1px solid #ddd;
     padding-top: 4px;
     padding-right: 9px;
     padding-bottom: 4px;
     padding-left: 9px;
-    margin-left: 0.5px;
-    font-size: 17.5px;
+    font-size: 14.5px;
     color: rgb(63, 63, 63);
     cursor: pointer;
+    background-color: #ffffff;
 }
 
-.pag-box:hover{
+.pag-square:hover{
     background-color: #f0f0f0;
 }
 
 .active-box{
     color: #fff !important;
     background-color: #10bbd5 !important;
+}
+
+.pag-inactive{
+    background-color: #f0f0f0;
+    cursor: unset;
 }

@@ -172,6 +172,10 @@
     display: none;
 }
 
+.basket-anchor{
+    display: none;
+}
+
 .basket-mobile-icon{
     color: #fff;
     font-weight: 500;
@@ -261,6 +265,10 @@
     }
 
     .nav-second-3-mobile{
+        display: block;
+    }
+
+    .basket-anchor{
         display: block;
     }
 

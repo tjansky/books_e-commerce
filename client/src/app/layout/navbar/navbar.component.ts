@@ -36,15 +36,13 @@ export class NavbarComponent implements OnInit {
   onSearchClick() {
     const search = this.searchTerm.nativeElement.value;
     const currentRoute = this.router.url; 
-
-    console.log("User from route: " + currentRoute + " searching books with: " + search);
+    //console.log("User from route: " + currentRoute + " searching books with: " + search);
 
     // if user search for books and he is not on "/shop" route, navigate him there
     if (currentRoute !== "/shop") {
-      console.log("User not on shop route while searching for books, navigating him to /shop");
+      //console.log("User not on shop route while searching for books, navigating him to /shop");
       this.router.navigateByUrl("/shop");
     }
-
     this.shopService.setSearchQuery(search);
   }
 

@@ -9,6 +9,7 @@
     </div>
     <div>
         <button type="submit" class="blue-btn action-btn">Log in</button>
+        <div class="error-info" *ngIf="error">User with given credentials was not found</div>
         <div class="skip-container">
             <div class="skip-registration-info">Skip user registration.</div>
             <button (click)="onLogAsTest()" type="button" class="login-as-btn action-btn">Log in as <span>Test_User</span></button>

@@ -1,63 +1,100 @@
-<div>
-    <h3>Delivery Address</h3>
-    <div>
-        <label>Full name*</label>
-        <input type="text">
-    </div>
-    <div>
-        <label>Address*</label>
-        <input type="text">
-    </div>
-    <div>
-        <label>Town/city*</label>
-        <input type="text">
-    </div>
-    <div>
-        <label>County/state</label>
-        <input type="text">
-    </div>
-    <div>
-        <label>Postcode/ZIP*</label>
-        <input type="text">
-    </div>
-    <div>
-        <label>Phone number*</label>
-        <input type="text">
-    </div>
-    <br> 
-    <button type="button" (click)="onContinueToPayment()">Continue to payment</button>
-</div>
+<div class="checkout-container">
+    <div class="payment-container">
+        <div>
+            <div class="payment-title">Please fill in your details for this order</div>
+            <div class="input-label-container">
+                <label>Full name*</label>
+                <input type="text">
+                <div>Please enter a first and last name</div>
+            </div>
+            <div class="input-label-container">
+                <label>Address*</label>
+                <input type="text">
+                <div>Please enter your address</div>
+            </div>
+            <div class="input-label-container">
+                <label>Town/city*</label>
+                <input type="text">
+                <div>Please enter your town/city</div>
+            </div>
+            <div class="input-label-container">
+                <label>County/state</label>
+                <input type="text">
+            </div>
+            <div class="input-label-container">
+                <label>Postcode/ZIP*</label>
+                <input type="text">
+                <div>Please enter your postcode/ZIP or write 'No Postcode'</div>
+            </div>
+            <div class="input-label-container">
+                <label>Phone number*</label>
+                <input type="text">
+                <div>Please enter your phone number</div>
+            </div>
+            <br>
+            <button class="blue-btn checkout-btns" type="button" (click)="onContinueToPayment()">Continue to payment</button>
+        </div>
 
-<hr>
+        <hr>
 
-<div>
-    <h3>Payment</h3>
-    <!-- <div>
+        <div>
+            <h3>Payment</h3>
+            <!-- <div>
         <label>Card Type</label>
         <select >
             <option>Visa</option>
             <option>Master Class</option>
         </select>
     </div> -->
-    <form [formGroup]="checkoutForm">
-    <div>
-        <label>Name on Card*</label>
-        <input formControlName="nameOnCard" type="text">
+            <form [formGroup]="checkoutForm">
+                <div>
+                    <label>Name on Card*</label>
+                    <input formControlName="nameOnCard" type="text">
+                </div>
+                <div>
+                    <div #cardNumber></div>
+                    <ng-container *ngIf="cardErrors">
+                        <span>{{cardErrors}}</span>
+                    </ng-container>
+                </div>
+                <div>
+                    <div #cardExpiry></div>
+                </div>
+
+                <div>
+                    <div #cardCvc></div>
+                </div>
+                <br>
+                <button class="blue-btn checkout-btns" (click)="onPayment()">Buy now</button>
+            </form>
+        </div>
     </div>
-    <div>
-        <div #cardNumber></div>
-        <ng-container *ngIf="cardErrors">
-            <span>{{cardErrors}}</span>
-        </ng-container>
+
+    <div class="basket-info">
+        <div class="basket-info-heading">
+            <div class="order-heading">Order Summary</div>
+            <div class="items-count-container">
+                <div> <i class="fas fa-shopping-basket basket-icon"></i> 2 items</div> 
+                <div>$28</div>
+            </div>
+        </div>
+        <div class="row-book">
+            <div class="row-book-first">How to Win Friends and Influence x1</div>
+            <div class="row-book-second">$9,9</div>
+        </div>
+        <div class="row-book">
+            <div class="row-book-first">Atomic Habits x2</div>
+            <div class="row-book-second">$9,9</div>
+        </div>
+
+        <div class="row-book">
+            <div class="row-book-first bold">Delivery</div>
+            <div class="row-book-second">FREE</div>
+        </div>
+        <div class="row-book">
+            <div class="row-book-first bold">Total</div>
+            <div class="row-book-second total-amount">$28,10</div>
+        </div>
+        
     </div>
-    <div>
-        <div #cardExpiry></div>
-    </div>
-    
-    <div>
-        <div #cardCvc></div>
-    </div>
-    <br>
-    <button (click)="onPayment()">Buy now</button>
-</form>
 </div>

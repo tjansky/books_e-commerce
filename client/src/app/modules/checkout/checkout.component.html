@@ -1,51 +1,61 @@
 <div class="checkout-container">
     <div class="payment-container">
-        <div>
+        <form [formGroup]="checkoutDetailsForm" (ngSubmit)="onSubmitDetails()">
             <div class="payment-title">Please fill in your details for this order</div>
             <div class="input-label-container">
                 <label>Full name*</label>
-                <input type="text">
-                <div>Please enter a first and last name</div>
+                <input formControlName="fullName" type="text">
+                <div *ngIf="checkoutDetailsForm.get('fullName').hasError('required') &&
+                            checkoutDetailsForm.get('fullName').touched">
+                    Please enter a first and last name
+                </div>
             </div>
             <div class="input-label-container">
                 <label>Address*</label>
-                <input type="text">
-                <div>Please enter your address</div>
+                <input formControlName="address" type="text">
+                <div *ngIf="checkoutDetailsForm.get('address').hasError('required') &&
+                            checkoutDetailsForm.get('address').touched">
+                    Please enter your address
+                </div>
             </div>
             <div class="input-label-container">
                 <label>Town/city*</label>
-                <input type="text">
-                <div>Please enter your town/city</div>
+                <input formControlName="town" type="text">
+                <div *ngIf="checkoutDetailsForm.get('town').hasError('required') &&
+                            checkoutDetailsForm.get('town').touched">
+                    Please enter your town/city
+                </div>
             </div>
             <div class="input-label-container">
                 <label>County/state</label>
-                <input type="text">
+                <input formControlName="state" type="text">
             </div>
             <div class="input-label-container">
                 <label>Postcode/ZIP*</label>
-                <input type="text">
-                <div>Please enter your postcode/ZIP or write 'No Postcode'</div>
+                <input formControlName="postcode" type="text">
+                <div *ngIf="checkoutDetailsForm.get('postcode').hasError('required') &&
+                            checkoutDetailsForm.get('postcode').touched">
+                    Please enter your postcode/ZIP or write 'No Postcode'
+                </div>
             </div>
             <div class="input-label-container">
                 <label>Phone number*</label>
-                <input type="text">
-                <div>Please enter your phone number</div>
+                <input formControlName="phone" type="text">
+                <div *ngIf="checkoutDetailsForm.get('phone').hasError('required') &&
+                            checkoutDetailsForm.get('phone').touched">
+                    Please enter your phone number
+                </div>
             </div>
             <br>
-            <button class="blue-btn checkout-btns" type="button" (click)="onContinueToPayment()">Continue to payment</button>
-        </div>
+            <button
+                [class.disabled-button]="checkoutDetailsForm.invalid || detailsSubmited" 
+                [disabled]="checkoutDetailsForm.invalid || detailsSubmited" class="blue-btn checkout-btns" type="submit">Continue to payment</button>
+        </form>
 
         <hr>
 
         <div>
             <h3>Payment</h3>
-            <!-- <div>
-        <label>Card Type</label>
-        <select >
-            <option>Visa</option>
-            <option>Master Class</option>
-        </select>
-    </div> -->
             <form [formGroup]="checkoutForm">
                 <div>
                     <label>Name on Card*</label>
@@ -65,7 +75,10 @@
                     <div #cardCvc></div>
                 </div>
                 <br>
-                <button class="blue-btn checkout-btns" (click)="onPayment()">Buy now</button>
+                <button 
+                [class.disabled-button]="!detailsSubmited" 
+                [disabled]="!detailsSubmited" class="blue-btn checkout-btns"
+                    class="blue-btn checkout-btns" (click)="onPayment()">Buy now</button>
             </form>
         </div>
     </div>
@@ -75,16 +88,12 @@
             <div class="order-heading">Order Summary</div>
             <div class="items-count-container">
                 <div> <i class="fas fa-shopping-basket basket-icon"></i> 2 items</div> 
-                <div>$28</div>
+                <div>{{basketTotal$ | async | currency}}</div>
             </div>
         </div>
-        <div class="row-book">
-            <div class="row-book-first">How to Win Friends and Influence x1</div>
-            <div class="row-book-second">$9,9</div>
-        </div>
-        <div class="row-book">
-            <div class="row-book-first">Atomic Habits x2</div>
-            <div class="row-book-second">$9,9</div>
+        <div *ngFor="let item of basket.items" class="row-book">
+            <div class="row-book-first">{{item.title}} x{{item.quantity}}</div>
+            <div class="row-book-second">{{(item.price*item.quantity) | currency}}</div>
         </div>
 
         <div class="row-book">
@@ -93,7 +102,7 @@
         </div>
         <div class="row-book">
             <div class="row-book-first bold">Total</div>
-            <div class="row-book-second total-amount">$28,10</div>
+            <div class="row-book-second total-amount">{{basketTotal$ | async | currency}}</div>
         </div>
         
     </div>

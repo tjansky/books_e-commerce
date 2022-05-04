@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { OrderApiService } from 'src/app/data/services/order-api.service';
@@ -20,6 +20,10 @@ export class CheckoutComponent implements OnInit, AfterViewInit, OnDestroy {
   basket: Basket;
   basketTotal$: Observable<number>;
   checkoutForm: FormGroup;
+  checkoutDetailsForm: FormGroup;
+  buyerData: {fullName: string, address: string, town: string, state: string, postcode: string};
+
+  detailsSubmited = false;
 
   @ViewChild('cardNumber', {static: true}) cardNumberElement: ElementRef;
   @ViewChild('cardExpiry', {static: true}) cardExpiryElement: ElementRef;
@@ -59,12 +63,25 @@ export class CheckoutComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    // set details form
+    this.checkoutDetailsForm = new FormGroup({
+      fullName: new FormControl('', Validators.required),
+      address: new FormControl('', Validators.required),
+      town: new FormControl('', Validators.required),
+      state: new FormControl(''),
+      postcode: new FormControl('', Validators.required),
+      phone: new FormControl('', Validators.required),
+    });
+
+    // set checkout form
     this.checkoutForm = new FormGroup({
       nameOnCard: new FormControl('')
     });
 
     this.basketService.basket$.subscribe(res => this.basket = res);
     this.basketTotal$ = this.basketService.basketTotal$;
+
+    
   }
 
   onChange({error}) {
@@ -75,7 +92,24 @@ export class CheckoutComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  onContinueToPayment() {
+  onSubmitDetails() {
+    this.detailsSubmited = true;
+
+    console.log("okinut details forma");
+    console.warn(this.checkoutDetailsForm.value);
+    const formData = this.checkoutDetailsForm.value;
+
+    this.checkoutDetailsForm.disable();
+    // disejblaj i button
+
+    this.buyerData = { 
+      fullName: formData.fullName,
+      address: formData.address,
+      town: formData.town,
+      state: formData.state,
+      postcode: formData.postcode
+    }
+
     this.paymentApiService.createOrUpdatePaymentIntent(this.basket).subscribe((res: Basket) => {
       console.log(res);
       // set new basket with paymentIntent
@@ -84,6 +118,7 @@ export class CheckoutComponent implements OnInit, AfterViewInit, OnDestroy {
       console.log(error);
     });
   }
+
 
   onPayment() {
     const orderToCreate: CreateOrder = this.createOrderFromBasket(this.basket);
@@ -107,7 +142,7 @@ export class CheckoutComponent implements OnInit, AfterViewInit, OnDestroy {
             //order status is set to successful
             console.log("Order na successful updejtan");
             // navigate to order details
-            this.router.navigateByUrl("/orders/" + order.id);
+            this.router.navigateByUrl("/orders");
           }, error => {
             console.log(error);
           })
@@ -129,11 +164,11 @@ export class CheckoutComponent implements OnInit, AfterViewInit, OnDestroy {
     basket.items.forEach(i => orderItems.push({bookId: i.id, quantity: i.quantity}));
     
     return {
-      shipToFirstName: "test",
-      shipToLastName: "test",
-      shipToStreet: "test",
-      shipToCity: "test",
-      shipToZipcode: "test",
+      shipToFirstName: this.buyerData.fullName,
+      shipToLastName: this.buyerData.fullName,
+      shipToStreet: this.buyerData.address,
+      shipToCity: this.buyerData.town,
+      shipToZipcode: this.buyerData.postcode,
       paymentIntendId: basket.paymentIntentId,
       orderItems: orderItems
     }

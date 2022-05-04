@@ -96,3 +96,8 @@
     font-size: 18px;
     color: #ff0072;
 }
+
+.disabled-button{
+    pointer-events: none;  /* <----------- */
+    opacity: 0.2;
+}
